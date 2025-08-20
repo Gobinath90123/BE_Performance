@@ -1,0 +1,41 @@
+name: Run JMeter Tests
+
+on:
+  workflow_dispatch:   # allows manual run
+  push:
+    branches:
+      - main
+
+jobs:
+  jmeter-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Setup Java (needed for JMeter)
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+
+      # Step 3: Install JMeter
+      - name: Install JMeter
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jmeter
+
+      # Step 4: Run JMeter Test (point to your JMX file)
+      - name: Run JMeter script
+        run: |
+          jmeter -n -t "JMX files/Integration_Approve_Estimation_Quotation API.jmx" -l results.jtl -e -o results/
+
+      # Step 5: Upload report as artifact
+      - name: Upload JMeter Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: jmeter-report
+          path: results/
