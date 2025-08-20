@@ -8,34 +8,35 @@ on:
 
 jobs:
   jmeter-test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest   # changed from ubuntu to windows
 
     steps:
       # Step 1: Checkout repository
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4   # latest checkout action
 
-      # Step 2: Setup Java (needed for JMeter)
+      # Step 2: Setup Java (JMeter needs it)
       - name: Setup Java
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4   # updated to v4
         with:
-          java-version: '11'
+          java-version: '17'   # better for JMeter 5.6.3
           distribution: 'temurin'
 
-      # Step 3: Install JMeter
+      # Step 3: Install JMeter on Windows
       - name: Install JMeter
         run: |
-          sudo apt-get update
-          sudo apt-get install -y jmeter
+          curl -L https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.zip -o jmeter.zip
+          tar -xf jmeter.zip
+          echo "${{ github.workspace }}\apache-jmeter-5.6.3\bin" >> $env:GITHUB_PATH
 
-      # Step 4: Run JMeter Test (point to your JMX file)
+      # Step 4: Run JMeter Test
       - name: Run JMeter script
         run: |
           jmeter -n -t "JMX files/Integration_Approve_Estimation_Quotation API.jmx" -l results.jtl -e -o results/
 
       # Step 5: Upload report as artifact
       - name: Upload JMeter Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4   # ✅ latest version
         with:
           name: jmeter-report
           path: results/
