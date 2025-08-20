@@ -1,0 +1,7 @@
+echo "# Ignore JMeter results & reports
+/HTML Report/
+/JTL Files/
+*.jtl
+jmeter.log
+.DS_Store
+Thumbs.db" > .gitignore

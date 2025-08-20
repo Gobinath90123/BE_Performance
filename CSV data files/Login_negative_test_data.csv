@@ -1,0 +1,5 @@
+username,password,expected_error
+mainsds,Welcome123,User with mainsds doesn't exist.
+main,Welcome123kj,Error: FailedBadPassword
+,Welcome123,Username is mandatory
+main,,Error: FailedBadPassword

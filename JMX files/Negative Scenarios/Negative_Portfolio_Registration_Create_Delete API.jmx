@@ -1,0 +1,2628 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="BenchMarkEstimation">
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Portfolio Registrations" enabled="false">
+        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <stringProp name="LoopController.loops">1</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+          <stringProp name="HTTPSampler.domain">${BASE_URL}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${PROTOCOL}</stringProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="THREAD_COUNT" elementType="Argument">
+              <stringProp name="Argument.name">THREAD_COUNT</stringProp>
+              <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc"></stringProp>
+            </elementProp>
+            <elementProp name="RAMP_UP" elementType="Argument">
+              <stringProp name="Argument.name">RAMP_UP</stringProp>
+              <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="LOOP_COUNT" elementType="Argument">
+              <stringProp name="Argument.name">LOOP_COUNT</stringProp>
+              <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="PROTOCOL" elementType="Argument">
+              <stringProp name="Argument.name">PROTOCOL</stringProp>
+              <stringProp name="Argument.value">https</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="BASE_URL" elementType="Argument">
+              <stringProp name="Argument.name">BASE_URL</stringProp>
+              <stringProp name="Argument.value">v10-integration.dev.api.test.benchmarkestimating.com</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="API_VERSION" elementType="Argument">
+              <stringProp name="Argument.name">API_VERSION</stringProp>
+              <stringProp name="Argument.value">v2</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Credentials " enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="USERNAME" elementType="Argument">
+              <stringProp name="Argument.name">USERNAME</stringProp>
+              <stringProp name="Argument.value">${__P(username,main)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="PASSWORD" elementType="Argument">
+              <stringProp name="Argument.name">PASSWORD</stringProp>
+              <stringProp name="Argument.value">${__P(password,Welcome123)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="01_Authentication" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login_API" enabled="true">
+            <stringProp name="HTTPSampler.path">/api/v2/auth/login</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;name&quot;: &quot;${USERNAME}&quot;,&#xd;
+    &quot;password&quot;: &quot;${PASSWORD}&quot;,&#xd;
+    &quot;userType&quot;: &quot;string&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">
+import groovy.json.JsonSlurper 
+
+// === 1. Capture Request Payload ===
+def username = vars.get(&quot;USERNAME&quot;) ?: &quot;USERNAME_NOT_SET&quot;
+def password = vars.get(&quot;PASSWORD&quot;) ?: &quot;PASSWORD_NOT_SET&quot;
+
+// === 2. Extract response and parse ===
+def response = prev.getResponseDataAsString()
+def authToken = &quot;AUTH_TOKEN_NOT_SET&quot;
+
+if (response) {
+    try {
+        def json = new JsonSlurper().parseText(response)
+        def extractedToken = json?.data
+        if (extractedToken) {
+            authToken = extractedToken.toString()
+            vars.put(&quot;authToken&quot;, authToken)
+        } else {
+            log.warn(&quot;⚠️ authToken missing in response&quot;)
+            System.out.println(&quot;⚠️ authToken missing in response&quot;)
+        }
+    } catch (Exception e) {
+        log.error(&quot;❌ JSON parse error&quot;, e)
+        System.out.println(&quot;❌ JSON parse error: &quot; + e.message)
+    }
+} else {
+    log.warn(&quot;❗ Response is empty&quot;)
+    System.out.println(&quot;❗ Response is empty&quot;)
+}
+
+// === 3. Log and show output ===
+def payloadLog = &quot;&quot;&quot;
+====================== RUNTIME DEBUG INFO ======================
+
+&gt;&gt;&gt; REQUEST PAYLOAD:
+USERNAME : $username
+PASSWORD : $password
+
+&gt;&gt;&gt; RESPONSE DATA:
+Extracted authToken :
+$authToken
+
+================================================================
+&quot;&quot;&quot;
+
+// Print to JMeter GUI log
+log.info(payloadLog)
+
+// Print to console in non-GUI mode
+System.out.println(payloadLog)
+
+// Also set sample label and response (GUI only)
+prev.setSampleLabel(&quot;Log Payload + Token&quot;)
+prev.setResponseData(payloadLog, &quot;UTF-8&quot;)
+
+
+</stringProp>
+            </JSR223PostProcessor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Registration and Delete" enabled="false"/>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${authToken}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Create  Portfolio" enabled="true"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Portfolio" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/project-composition/create</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+  &quot;title&quot;: &quot;${PO_Title}&quot;,&#xd;
+  &quot;description&quot;: &quot;${PO_Description}&quot;,&#xd;
+  &quot;comments&quot;: &quot;${PO_Comments}&quot;,&#xd;
+  &quot;parentId&quot;: null,&#xd;
+  &quot;recordType&quot;: 0,&#xd;
+  &quot;PortfolioId&quot;: null&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Generate Dynamic Portfolio Data" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">import org.apache.commons.lang3.RandomStringUtils
+import java.text.SimpleDateFormat
+import java.util.Date
+
+
+// Generate a 6-character alphanumeric suffix
+def randomSuffix = RandomStringUtils.randomAlphanumeric(6).toUpperCase()
+
+// Generate formatted timestamp
+def timestamp = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new Date())
+
+// Construct dynamic portfolio data
+def poTitle = &quot;PerfPortfolio&quot; +randomSuffix
+def poDescription = &quot;A portfolio that creates estimates for project Perf_Portfolio_&quot;+randomSuffix +&quot;.&quot;
+def poComments = &quot;This is the portfolio you&apos;re currently viewing, created at &quot;+timestamp +&quot;.&quot;
+
+
+// Store values in JMeter variables
+vars.put(&quot;PO_Title&quot;, poTitle)
+vars.put(&quot;PO_Description&quot;, poDescription)
+vars.put(&quot;PO_Comments&quot;, poComments)
+
+
+// Log to JMeter console
+log.info(&quot;Generated Portfolio Title: &quot; + poTitle)
+log.info(&quot;Generated Portfolio Description: &quot; + poDescription)
+log.info(&quot;Generated Portfolio Comments: &quot; + poComments)</stringProp>
+              </JSR223PreProcessor>
+              <hashTree/>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">
+import groovy.json.JsonSlurper 
+
+// === 1. Capture Pre-Processed Variables ===
+def poTitle = vars.get(&quot;PO_Title&quot;) ?: &quot;PO_TITLE_NOT_SET&quot;
+def poDescription = vars.get(&quot;PO_Description&quot;) ?: &quot;PO_DESCRIPTION_NOT_SET&quot;
+def poComments = vars.get(&quot;PO_Comments&quot;) ?: &quot;PO_COMMENTS_NOT_SET&quot;
+
+// === 2. Extract response and parse ===
+def response = prev.getResponseDataAsString()
+def portfolioId = &quot;PORTFOLIO_ID_NOT_EXTRACTED&quot;
+
+if (response) {
+    try {
+        def json = new JsonSlurper().parseText(response)
+        def responseTitle = json?.data?.title
+
+        if (responseTitle == poTitle) {
+            portfolioId = json?.data?.id?.toString()
+            vars.put(&quot;portfolioId&quot;, portfolioId)
+        } else {
+            log.warn(&quot;⚠️ Title mismatch or missing in response.&quot;)
+            System.out.println(&quot;⚠️ Title mismatch or missing in response.&quot;)
+        }
+    } catch (Exception e) {
+        log.error(&quot;❌ JSON parse error&quot;, e)
+        System.out.println(&quot;❌ JSON parse error: &quot; + e.message)
+    }
+} else {
+    log.warn(&quot;❗ Response is empty&quot;)
+    System.out.println(&quot;❗ Response is empty&quot;)
+}
+
+// === 3. Log and show output ===
+def payloadLog = &quot;&quot;&quot;
+====================== RUNTIME DEBUG INFO ======================
+
+&gt;&gt;&gt; PRE-PROCESSED INPUTS:
+PO_Title       : $poTitle
+PO_Description : $poDescription
+PO_Comments    : $poComments
+
+&gt;&gt;&gt; RESPONSE DATA:
+Matched Title     : ${poTitle}
+Extracted ID      : $portfolioId
+
+================================================================
+&quot;&quot;&quot;
+
+// Print to JMeter GUI log
+log.info(payloadLog)
+
+// Print to console in non-GUI mode
+System.out.println(payloadLog)
+
+// Set sample label and response for better visibility in GUI
+prev.setSampleLabel(&quot;Log Payload + portfolioId&quot;)
+prev.setResponseData(payloadLog, &quot;UTF-8&quot;)
+</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Portfolio Project Composition" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/project-composition/get</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;leftValue&quot;:1,&quot;offset&quot;:0,&quot;recordsPerPage&quot;:450,&quot;aggregateLevel&quot;:&quot;portfolio&quot;,&quot;expandedList&quot;:[],&quot;portfolioId&quot;:0,&quot;programmeId&quot;:0,&quot;schemeId&quot;:0}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Portfolio Expanded Portfolio Project Composition" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/project-composition/get</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;leftValue&quot;:1,&quot;offset&quot;:0,&quot;recordsPerPage&quot;:450,&quot;aggregateLevel&quot;:&quot;portfolio&quot;,&quot;expandedList&quot;:[${portfolioId}],&quot;portfolioId&quot;:0,&quot;programmeId&quot;:0,&quot;schemeId&quot;:0}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Create Programme" enabled="true"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Programme" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/project-composition/create</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;title&quot;:&quot;${PG_Title}&quot;,&quot;description&quot;:&quot;${PG_Description}&quot;,&quot;parentId&quot;:${portfolioId},&quot;recordType&quot;:1,&quot;PortfolioId&quot;:${portfolioId},&quot;comments&quot;:&quot;${PG_Comments}&quot;}&#xd;
+</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Generate Dynamic Programme Data " enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Random
+import java.util.UUID
+
+// Generate a 3-digit random number suffix
+def numericSuffix = String.format(&quot;%03d&quot;, new Random().nextInt(999))
+// Generate a short unique ID (first 8 chars of UUID)
+def randomSuffix = UUID.randomUUID().toString().take(8).toUpperCase()
+
+// Timestamp for logging
+def timestamp = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new Date())
+
+// Construct dynamic Programme values
+def programmeTitle = &quot;Perf_Programme_&quot; + numericSuffix
+def programmeDescription = &quot;This is a dynamically generated description at &quot; + timestamp
+def programmeComments = &quot;Auto-comment &quot; + randomSuffix
+
+// Store in JMeter variables
+vars.put(&quot;PG_Title&quot;, programmeTitle)
+vars.put(&quot;PG_Description&quot;, programmeDescription)
+vars.put(&quot;PG_Comments&quot;, programmeComments)
+
+// Print to JMeter log
+log.info(&quot;Generated Programme Title: &quot; + programmeTitle)
+log.info(&quot;Generated Programme Description: &quot; + programmeDescription)
+log.info(&quot;Generated Programme Comments: &quot; + programmeComments)
+</stringProp>
+              </JSR223PreProcessor>
+              <hashTree/>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">
+import groovy.json.JsonSlurper 
+
+// === 1. Capture Pre-Processed Variables ===
+def expectedTitle = vars.get(&quot;PG_Title&quot;) ?: &quot;PG_TITLE_NOT_SET&quot;
+def expectedDescription = vars.get(&quot;PG_Description&quot;) ?: &quot;PG_DESCRIPTION_NOT_SET&quot;
+def expectedComments = vars.get(&quot;PG_Comments&quot;) ?: &quot;PG_COMMENTS_NOT_SET&quot;
+
+// === 2. Extract response and parse ===
+def response = prev.getResponseDataAsString()
+def programmeId = &quot;PROGRAMME_ID_NOT_EXTRACTED&quot;
+
+if (response) {
+    try {
+        def json = new JsonSlurper().parseText(response)
+        def responseTitle = json?.data?.title
+
+        if (responseTitle == expectedTitle) {
+            programmeId = json?.data?.id?.toString()
+            vars.put(&quot;programmeId&quot;, programmeId)
+        } else {
+            log.warn(&quot;⚠️ Title mismatch or missing in response.&quot;)
+            System.out.println(&quot;⚠️ Title mismatch or missing in response.&quot;)
+        }
+    } catch (Exception e) {
+        log.error(&quot;❌ JSON parse error&quot;, e)
+        System.out.println(&quot;❌ JSON parse error: &quot; + e.message)
+    }
+} else {
+    log.warn(&quot;❗ Response is empty&quot;)
+    System.out.println(&quot;❗ Response is empty&quot;)
+}
+
+// === 3. Log and show output ===
+def payloadLog = &quot;&quot;&quot;
+====================== RUNTIME DEBUG INFO ======================
+
+&gt;&gt;&gt; PRE-PROCESSED INPUTS:
+PG_Title       : $expectedTitle
+PG_Description : $expectedDescription
+PG_Comments    : $expectedComments
+
+&gt;&gt;&gt; RESPONSE DATA:
+Matched Title     : $expectedTitle
+Extracted ID      : $programmeId
+
+================================================================
+&quot;&quot;&quot;
+
+// Print to JMeter GUI log
+log.info(payloadLog)
+
+// Print to console in non-GUI mode
+System.out.println(payloadLog)
+
+// Set sample label and response (for GUI visibility)
+prev.setSampleLabel(&quot;Log Payload + programmeId&quot;)
+prev.setResponseData(payloadLog, &quot;UTF-8&quot;)
+</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Programme Project Composition" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/project-composition/get</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;leftValue&quot;:1,&quot;offset&quot;:0,&quot;recordsPerPage&quot;:450,&quot;aggregateLevel&quot;:&quot;portfolio&quot;,&quot;expandedList&quot;:[${portfolioId}],&quot;portfolioId&quot;:0,&quot;programmeId&quot;:0,&quot;schemeId&quot;:0}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Expanded Programme Project Composition" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/project-composition/get</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;leftValue&quot;:1,&quot;offset&quot;:0,&quot;recordsPerPage&quot;:450,&quot;aggregateLevel&quot;:&quot;programme&quot;,&quot;expandedList&quot;:[${portfolioId},${programmeId}],&quot;portfolioId&quot;:0,&quot;programmeId&quot;:0,&quot;schemeId&quot;:0}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Region" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/common-v2/region/get</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get all Job Category" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/common-v2/job-category/getAll</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get all Resource Type" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/common-v2/resource-type/getAll</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Common Salutation" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/common/salutation/get</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get all Country" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/common-v2/country/getAll</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Common Unit" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/common/unit/get</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get all Common Project type" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/common/project-type/getAll</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Cost Code types" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/common/cost-code-types/get</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get all Project Site Type" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/common-v2/project-site-type/getAll</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Common Organization Types" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/common/organization-types/get</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get all Common Depot" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/common/depot/getall</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Common States" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/common/states/get</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Create Project" enabled="true"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Project" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/project-composition/create</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+  &quot;title&quot;: &quot;${PJ_Title}&quot;,&#xd;
+  &quot;description&quot;: &quot;${PJ_Description}&quot;,&#xd;
+  &quot;parentId&quot;: ${programmeId},&#xd;
+  &quot;recordType&quot;: 2,&#xd;
+  &quot;portfolioId&quot;: ${portfolioId},&#xd;
+  &quot;CustomField&quot;: &quot;{\&quot;operationalPlan\&quot;:\&quot;\&quot;,\&quot;operationPlanversion\&quot;:\&quot;\&quot;,\&quot;capitalBaseline\&quot;:\&quot;\&quot;,\&quot;capitalBaselineVersion\&quot;:\&quot;\&quot;,\&quot;controlPeriod\&quot;:\&quot;\&quot;,\&quot;clientCode\&quot;:\&quot;\&quot;,\&quot;clientType\&quot;:\&quot;\&quot;,\&quot;clientCompany\&quot;:\&quot;\&quot;,\&quot;principalCode\&quot;:\&quot;\&quot;,\&quot;principalType\&quot;:\&quot;\&quot;,\&quot;principalCompany\&quot;:\&quot;\&quot;}&quot;,&#xd;
+  &quot;project&quot;: {&#xd;
+    &quot;projectQuoteNo&quot;: &quot;${PJ_QuoteNo}&quot;,&#xd;
+    &quot;projectDate&quot;: &quot;2024-01-16T18:30:00.000Z&quot;,&#xd;
+    &quot;projectEndDate&quot;: &quot;2024-01-30T18:30:00.000Z&quot;,&#xd;
+    &quot;projectMapRef&quot;: &quot;&quot;,&#xd;
+    &quot;projectLocation&quot;: &quot;&quot;,&#xd;
+    &quot;projectSuburb&quot;: &quot;&quot;,&#xd;
+    &quot;projectPostcode&quot;: &quot;&quot;,&#xd;
+    &quot;jobCategoryId&quot;: 1,&#xd;
+    &quot;depotId&quot;: 5,&#xd;
+    &quot;projectTypeId&quot;: 1,&#xd;
+    &quot;projectSiteTypeId&quot;: 1,&#xd;
+    &quot;organisationId&quot;: &quot;&quot;,&#xd;
+    &quot;regionId&quot;: &quot;&quot;,&#xd;
+    &quot;projectComments&quot;: &quot;&quot;,&#xd;
+    &quot;projectKeywords&quot;: &quot;&quot;,&#xd;
+    &quot;projectNotes&quot;: &quot;&quot;,&#xd;
+    &quot;stateId&quot;: &quot;&quot;,&#xd;
+    &quot;projectSalutationId&quot;: &quot;&quot;,&#xd;
+    &quot;projectCustomClientContact&quot;: &quot;&quot;,&#xd;
+    &quot;projectCustomClientContactPhone&quot;: &quot;&quot;,&#xd;
+    &quot;projectCustomClientContactFax&quot;: &quot;&quot;,&#xd;
+    &quot;projectCustomClientContactMobile&quot;: &quot;&quot;,&#xd;
+    &quot;projectCustomClientContactEmail&quot;: &quot;&quot;,&#xd;
+    &quot;scope&quot;: &quot;&quot;,&#xd;
+    &quot;deliverables&quot;: &quot;&quot;,&#xd;
+    &quot;standardConditions&quot;: &quot;&quot;,&#xd;
+    &quot;projectSpecificConditions&quot;: &quot;&quot;,&#xd;
+    &quot;paymentTermsConditionsCode&quot;: &quot;&quot;,&#xd;
+    &quot;paymentTermsConditionsDescription&quot;: &quot;&quot;&#xd;
+  }&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Generate Dynamic Project Data " enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Random
+
+// Generate a unique 3-digit suffix
+def suffix = String.format(&quot;%03d&quot;, new Random().nextInt(999))
+
+// Timestamp for context (optional but helpful)
+def timestamp = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new Date())
+
+// Construct project fields
+def projectTitle = &quot;Perf_Project_&quot; + suffix
+def projectDescription = &quot;Test project description for automation &quot; + suffix
+def quoteNo = &quot;QNO-&quot; + suffix
+def projectComments = &quot;Generated automatically at &quot; + timestamp
+
+// Store in JMeter variables
+vars.put(&quot;PJ_Title&quot;, projectTitle)
+vars.put(&quot;PJ_Description&quot;, projectDescription)
+vars.put(&quot;PJ_QuoteNo&quot;, quoteNo)
+vars.put(&quot;PJ_Comments&quot;, projectComments)
+
+// Print to JMeter log
+log.info(&quot;Generated Project Title: &quot; + projectTitle)
+log.info(&quot;Generated Project Description: &quot; + projectDescription)
+log.info(&quot;Generated Project Quote No: &quot; + quoteNo)
+log.info(&quot;Generated Project Comments: &quot; + projectComments)
+</stringProp>
+              </JSR223PreProcessor>
+              <hashTree/>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">
+import groovy.json.JsonSlurper
+
+// === 1. Get the response from the previous sampler ===
+def response = prev.getResponseDataAsString()
+def projectId = &quot;PROJECT_ID_NOT_EXTRACTED&quot;
+
+// === 2. Get Pre-Processor variables ===
+def expectedTitle       = vars.get(&quot;PJ_Title&quot;) ?: &quot;PJ_TITLE_NOT_SET&quot;
+def expectedDescription = vars.get(&quot;PJ_Description&quot;) ?: &quot;PJ_DESCRIPTION_NOT_SET&quot;
+def expectedQuoteNo     = vars.get(&quot;PJ_QuoteNo&quot;) ?: &quot;PJ_QUOTE_NO_NOT_SET&quot;
+def expectedComments    = vars.get(&quot;PJ_Comments&quot;) ?: &quot;PJ_COMMENTS_NOT_SET&quot;
+
+if (response) {
+    try {
+        def json = new JsonSlurper().parseText(response)
+        def responseTitle = json?.data?.title
+
+        if (responseTitle == expectedTitle) {
+            projectId = json?.data?.id?.toString()
+            vars.put(&quot;projectId&quot;, projectId)
+        } else {
+            log.warn(&quot;⚠️ Title mismatch or missing in response.&quot;)
+            System.out.println(&quot;⚠️ Title mismatch or missing in response.&quot;)
+        }
+    } catch (Exception e) {
+        log.error(&quot;❌ JSON parsing failed&quot;, e)
+        System.out.println(&quot;❌ JSON parsing failed: &quot; + e.message)
+    }
+} else {
+    log.warn(&quot;❗ Empty response received&quot;)
+    System.out.println(&quot;❗ Empty response received&quot;)
+}
+
+// === 3. Build log block for debug output ===
+def logOutput = &quot;&quot;&quot;
+====================== RUNTIME DEBUG INFO ======================
+
+&gt;&gt;&gt; PRE-PROCESSOR GENERATED PROJECT DATA:
+PJ_Title       : $expectedTitle
+PJ_Description : $expectedDescription
+PJ_QuoteNo     : $expectedQuoteNo
+PJ_Comments    : $expectedComments
+
+&gt;&gt;&gt; RESPONSE VERIFICATION:
+Matched Title  : $expectedTitle
+Extracted ID   : $projectId
+
+================================================================
+&quot;&quot;&quot;
+
+// === 4. Print to JMeter GUI log and Console (non-GUI) ===
+log.info(logOutput)
+System.out.println(logOutput)
+
+// === 5. Set response data and label for GUI mode ===
+prev.setSampleLabel(&quot;Log Project Payload + ID&quot;)
+prev.setResponseData(logOutput, &quot;UTF-8&quot;)
+</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Project Project Composition" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/project-composition/get</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;leftValue&quot;:1,&quot;offset&quot;:0,&quot;recordsPerPage&quot;:450,&quot;aggregateLevel&quot;:&quot;programme&quot;,&quot;expandedList&quot;:[${portfolioId},${programmeId}],&quot;portfolioId&quot;:0,&quot;programmeId&quot;:0,&quot;schemeId&quot;:0}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Project Composition estimates" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/project-composition/get/estimates/${projectId}</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Delete Project" enabled="true"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Project Delete" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/project-composition/delete/${projectId}?type=project</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">DELETE</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Project Composition" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/project-composition/get</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;leftValue&quot;:1,&quot;offset&quot;:0,&quot;recordsPerPage&quot;:450,&quot;aggregateLevel&quot;:&quot;programme&quot;,&quot;expandedList&quot;:[${portfolioId},${programmeId}],&quot;portfolioId&quot;:0,&quot;programmeId&quot;:0,&quot;schemeId&quot;:0}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">// === 1. Banner for Deletion Start ===
+def projectId = vars.get(&quot;projectId&quot;)
+def logHeader = &quot;\n==================== 🗑️ Deleting Project ====================\n&quot;
+
+log.info(logHeader)
+System.out.println(logHeader)
+
+log.info(&quot;📌 Project ID: &quot; + projectId)
+System.out.println(&quot;📌 Project ID: &quot; + projectId)
+
+// === 2. Validate projectId ===
+if (projectId == null || projectId.trim().isEmpty()) {
+    def errorMsg = &quot;&quot;&quot;
+==================== ❌ ERROR ====================
+❗ Project ID is missing or empty.
+🚫 Skipping the delete request to avoid invalid operation.
+==================================================
+&quot;&quot;&quot;
+
+    log.error(errorMsg)
+    System.out.println(errorMsg)
+
+    SampleResult.setSuccessful(false)  // Mark sampler as failed
+    prev.setResponseData(errorMsg, &quot;UTF-8&quot;)
+    prev.setSampleLabel(&quot;❌ Project Delete Failed&quot;)
+} else {
+    // === 3. Proceed with deletion ===
+    def successMsg = &quot;&quot;&quot;
+==================== ✅ VALIDATION PASSED ====================
+Project ID found: $projectId
+Proceeding with project deletion request...
+===============================================================
+&quot;&quot;&quot;
+
+    log.info(successMsg)
+    System.out.println(successMsg)
+
+    // 🔁 [Insert actual DELETE logic or HTTP sampler configuration here]
+
+    def completeMsg = &quot;&quot;&quot;
+==================== ✅ DELETION COMPLETED ====================
+Project with ID $projectId marked for deletion.
+===============================================================
+&quot;&quot;&quot;
+    log.info(completeMsg)
+    System.out.println(completeMsg)
+
+    prev.setResponseData(completeMsg, &quot;UTF-8&quot;)
+    prev.setSampleLabel(&quot;✅ Project Delete Initiated&quot;)
+}
+</stringProp>
+            </JSR223PostProcessor>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Delete Programme" enabled="true"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Programme Delete" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/project-composition/delete/${programmeId}?type=programme</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">DELETE</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Project Composition" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/project-composition/get</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;leftValue&quot;:1,&quot;offset&quot;:0,&quot;recordsPerPage&quot;:450,&quot;aggregateLevel&quot;:&quot;portfolio&quot;,&quot;expandedList&quot;:[${portfolioId}],&quot;portfolioId&quot;:0,&quot;programmeId&quot;:0,&quot;schemeId&quot;:0}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">// === 1. Initialize &amp; Log Header ===
+def programmeId = vars.get(&quot;programmeId&quot;)
+def logHeader = &quot;\n==================== 🗑️ Deleting Programme ====================\n&quot;
+
+log.info(logHeader)
+System.out.println(logHeader)
+
+log.info(&quot;📌 Programme ID: &quot; + programmeId)
+System.out.println(&quot;📌 Programme ID: &quot; + programmeId)
+
+// === 2. Validate programmeId ===
+if (programmeId == null || programmeId.trim().isEmpty()) {
+    def errorMsg = &quot;&quot;&quot;
+==================== ❌ ERROR ====================
+❗ Programme ID is missing or empty.
+🚫 Skipping the delete request to avoid invalid operation.
+==================================================
+&quot;&quot;&quot;
+    log.error(errorMsg)
+    System.out.println(errorMsg)
+
+    SampleResult.setSuccessful(false)  // Mark sampler as failed
+    prev.setResponseData(errorMsg, &quot;UTF-8&quot;)
+    prev.setSampleLabel(&quot;❌ Programme Delete Failed&quot;)
+} else {
+    // === 3. Proceed with deletion ===
+    def successMsg = &quot;&quot;&quot;
+==================== ✅ VALIDATION PASSED ====================
+Programme ID found: $programmeId
+Proceeding with programme deletion request...
+===============================================================
+&quot;&quot;&quot;
+    log.info(successMsg)
+    System.out.println(successMsg)
+
+    // 🔁 [Insert actual DELETE logic or HTTP sampler configuration here]
+
+    def completeMsg = &quot;&quot;&quot;
+==================== ✅ DELETION COMPLETED ====================
+Programme with ID $programmeId marked for deletion.
+===============================================================
+&quot;&quot;&quot;
+    log.info(completeMsg)
+    System.out.println(completeMsg)
+
+    prev.setResponseData(completeMsg, &quot;UTF-8&quot;)
+    prev.setSampleLabel(&quot;✅ Programme Delete Initiated&quot;)
+}
+</stringProp>
+            </JSR223PostProcessor>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Delete Portfolio" enabled="true"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Portfolio Delete" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/project-composition/delete/${portfolioId}?type=portfolio</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">DELETE</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Project Composition" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/project-composition/get</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;leftValue&quot;:1,&quot;offset&quot;:0,&quot;recordsPerPage&quot;:450,&quot;aggregateLevel&quot;:&quot;portfolio&quot;,&quot;expandedList&quot;:[${portfolioId}],&quot;portfolioId&quot;:0,&quot;programmeId&quot;:0,&quot;schemeId&quot;:0}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">// === 1. Setup &amp; Initial Logging ===
+def portfolioId = vars.get(&quot;portfolioId&quot;)
+def logHeader = &quot;\n==================== 🗑️ Deleting Portfolio ====================\n&quot;
+
+log.info(logHeader)
+System.out.println(logHeader)
+
+log.info(&quot;📌 Portfolio ID: &quot; + portfolioId)
+System.out.println(&quot;📌 Portfolio ID: &quot; + portfolioId)
+
+// === 2. Validate Portfolio ID ===
+if (portfolioId == null || portfolioId.trim().isEmpty()) {
+    def errorMsg = &quot;&quot;&quot;
+==================== ❌ ERROR ====================
+❗ Portfolio ID is missing or empty.
+🚫 Skipping delete request to prevent invalid operation.
+==================================================
+&quot;&quot;&quot;
+    log.error(errorMsg)
+    System.out.println(errorMsg)
+
+    SampleResult.setSuccessful(false)  // Fail the sampler
+    prev.setResponseData(errorMsg, &quot;UTF-8&quot;)
+    prev.setSampleLabel(&quot;❌ Portfolio Delete Failed&quot;)
+} else {
+    // === 3. Proceed with deletion ===
+    def successMsg = &quot;&quot;&quot;
+==================== ✅ VALIDATION PASSED ====================
+Portfolio ID found: $portfolioId
+Proceeding with portfolio deletion request...
+===============================================================
+&quot;&quot;&quot;
+    log.info(successMsg)
+    System.out.println(successMsg)
+
+    // 🔁 [Insert actual DELETE logic or trigger sampler here]
+
+    def completeMsg = &quot;&quot;&quot;
+==================== ✅ DELETION COMPLETED ====================
+Portfolio with ID $portfolioId marked for deletion.
+===============================================================
+&quot;&quot;&quot;
+    log.info(completeMsg)
+    System.out.println(completeMsg)
+
+    prev.setResponseData(completeMsg, &quot;UTF-8&quot;)
+    prev.setSampleLabel(&quot;✅ Portfolio Delete Initiated&quot;)
+}
+</stringProp>
+            </JSR223PostProcessor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SimpleDataWriter" testclass="ResultCollector" testname="Simple Data Writer" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">C:\Users\radhakrishnanv\Working Project\Benchmark_Estimating\Integration Environment\JTL Files\Portfolio_Registration_Create_Delete API.jtl</stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Login Negative Test Scenarios" enabled="true">
+          <stringProp name="LoopController.loops">4</stringProp>
+        </LoopController>
+        <hashTree>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+            <stringProp name="delimiter">,</stringProp>
+            <stringProp name="fileEncoding">UTF-8</stringProp>
+            <stringProp name="filename">C:\Users\radhakrishnanv\Working Project\Benchmark_Estimating\Integration Environment\CSV data files\Login_negative_test_data.csv</stringProp>
+            <boolProp name="ignoreFirstLine">false</boolProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">true</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="variableNames"></stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login" enabled="true">
+            <stringProp name="HTTPSampler.path">/api/v2/auth/login</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;name&quot;: &quot;${username}&quot;,&#xd;
+    &quot;password&quot;: &quot;${password}&quot;,&#xd;
+    &quot;userType&quot;: &quot;string&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">msg1;msg2</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.message;$.errors.Name[0]</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers">0;0</stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">NOT_FOUND;NOT_FOUND</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="JSR223 Assertion" enabled="true">
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">
+// === Metadata ===
+def controllerName = &quot;Negative Login Validation&quot;
+def requestName    = &quot;Validate Error Message&quot;
+
+// === Step 1: Get variables ===
+def expected = vars.get(&quot;expected_error&quot;) ?: &quot;&quot;
+def actual   = vars.get(&quot;msg1&quot;) &amp;&amp; vars.get(&quot;msg1&quot;) != &quot;NOT_FOUND&quot; 
+             ? vars.get(&quot;msg1&quot;) 
+             : (vars.get(&quot;msg2&quot;) ?: &quot;&quot;)
+
+// === Step 2: Logging ===
+log.info(&quot;================================================================&quot;)
+log.info(&quot;Controller   : ${controllerName}&quot;)
+log.info(&quot;Request Name : ${requestName}&quot;)
+log.info(&quot;================================================================&quot;)
+log.info(&quot;👤 Username  : ${vars.get(&apos;username&apos;)}&quot;)
+log.info(&quot;🔑 Password  : ${vars.get(&apos;password&apos;)}&quot;)
+log.info(&quot;✅ Expected  : ${expected}&quot;)
+log.info(&quot;🛑 Actual    : ${actual}&quot;)
+log.info(&quot;================================================================&quot;)
+
+// === Step 3: Assertion ===
+if (!actual.equals(expected)) {
+    AssertionResult.setFailure(true)
+    AssertionResult.setFailureMessage(&quot;❌ Expected &apos;${expected}&apos; but got &apos;${actual}&apos;&quot;)
+    log.error(&quot;❌ Negative test failed: Expected &apos;${expected}&apos;, got &apos;${actual}&apos;&quot;)
+} else {
+    log.info(&quot;✅ Negative test passed&quot;)
+}
+</stringProp>
+              <stringProp name="scriptLanguage">groovy</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+          </hashTree>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <url>true</url>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Create Portfolio Negative Test Scenarios" enabled="true">
+          <stringProp name="LoopController.loops">4</stringProp>
+        </LoopController>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${authToken}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+            <stringProp name="delimiter">,</stringProp>
+            <stringProp name="fileEncoding">UTF-8</stringProp>
+            <stringProp name="filename">C:\Users\radhakrishnanv\Working Project\Benchmark_Estimating\Integration Environment\CSV data files\Portfolio_negative_test_data.csv</stringProp>
+            <boolProp name="ignoreFirstLine">false</boolProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">true</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="variableNames"></stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Portfolio" enabled="true">
+            <stringProp name="HTTPSampler.path">/api/v2/project-composition/create</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;title&quot;: &quot;${PO_Title}&quot;,&#xd;
+  &quot;description&quot;: &quot;${PO_Description}&quot;,&#xd;
+  &quot;comments&quot;: &quot;${PO_Comments}&quot;,&#xd;
+  &quot;parentId&quot;: null,&#xd;
+  &quot;recordType&quot;: 0,&#xd;
+  &quot;PortfolioId&quot;: null&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract Error/Validation Messages" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">msg_data;msg_title;msg_desc</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data;$.errors.Title[0];$.errors.Description[0]</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers">0;0;0</stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">NOT_FOUND;NOT_FOUND;NOT_FOUND</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Validate Expected Message" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="script">
+// === Metadata ===
+def controllerName = &quot;Portfolio Creation - Negative Test&quot;
+def requestName    = &quot;Validate Error Messages&quot;
+
+// === Step 1: Prepare variables ===
+def expected = vars.get(&quot;Expected_Message&quot;)?.trim() ?: &quot;&quot;
+def actualMessages = []
+
+def msg_data = vars.get(&quot;msg_data&quot;)?.trim()
+def msg_title = vars.get(&quot;msg_title&quot;)?.trim()
+def msg_desc = vars.get(&quot;msg_desc&quot;)?.trim()
+
+if (msg_data &amp;&amp; msg_data != &quot;NOT_FOUND&quot;) actualMessages &lt;&lt; msg_data
+if (msg_title &amp;&amp; msg_title != &quot;NOT_FOUND&quot;) actualMessages &lt;&lt; msg_title
+if (msg_desc &amp;&amp; msg_desc != &quot;NOT_FOUND&quot;) actualMessages &lt;&lt; msg_desc
+
+def actual = actualMessages.join(&quot; | &quot;).trim()
+
+// === Step 2: Structured Logging ===
+log.info(&quot;================================================================&quot;)
+log.info(&quot;Controller   : ${controllerName}&quot;)
+log.info(&quot;Request Name : ${requestName}&quot;)
+log.info(&quot;================================================================&quot;)
+log.info(&quot;📌 Portfolio Title       : ${vars.get(&apos;PO_Title&apos;)}&quot;)
+log.info(&quot;📝 Portfolio Description : ${vars.get(&apos;PO_Description&apos;)}&quot;)
+log.info(&quot;💬 Portfolio Comments    : ${vars.get(&apos;PO_Comments&apos;)}&quot;)
+log.info(&quot;✅ Expected              : ${expected}&quot;)
+log.info(&quot;🛑 Actual                : ${actual}&quot;)
+log.info(&quot;================================================================&quot;)
+
+// === Step 3: Assertion ===
+if (!actual.equals(expected)) {
+    AssertionResult.setFailure(true)
+    AssertionResult.setFailureMessage(&quot;❌ Expected &apos;${expected}&apos; but got &apos;${actual}&apos;&quot;)
+    log.error(&quot;❌ Negative test failed: Expected &apos;${expected}&apos;, got &apos;${actual}&apos;&quot;)
+} else {
+    log.info(&quot;✅ Negative test passed&quot;)
+}
+
+</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+          </hashTree>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <url>true</url>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Create Programme Negative Test Scenarios" enabled="false">
+          <stringProp name="LoopController.loops">1</stringProp>
+        </LoopController>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${authToken}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+            <stringProp name="delimiter">,</stringProp>
+            <stringProp name="fileEncoding">UTF-8</stringProp>
+            <stringProp name="filename">C:\Users\radhakrishnanv\Working Project\Benchmark_Estimating\Integration Environment\CSV data files\Portfolio_negative_test_data.csv</stringProp>
+            <boolProp name="ignoreFirstLine">false</boolProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">true</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="variableNames"></stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Portfolio" enabled="true">
+            <stringProp name="HTTPSampler.path">/api/v2/project-composition/create</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;title&quot;: &quot;${PO_Title}&quot;,&#xd;
+  &quot;description&quot;: &quot;${PO_Description}&quot;,&#xd;
+  &quot;comments&quot;: &quot;${PO_Comments}&quot;,&#xd;
+  &quot;parentId&quot;: null,&#xd;
+  &quot;recordType&quot;: 0,&#xd;
+  &quot;PortfolioId&quot;: null&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract Error/Validation Messages" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">msg_data;msg_title;msg_desc</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data;$.errors.Title[0];$.errors.Description[0]</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers">0;0;0</stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">NOT_FOUND;NOT_FOUND;NOT_FOUND</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Validate Expected Message" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="script">
+// === Metadata ===
+def controllerName = &quot;Portfolio Creation - Negative Test&quot;
+def requestName    = &quot;Validate Error Messages&quot;
+
+// === Step 1: Prepare variables ===
+def expected = vars.get(&quot;expected_error&quot;) ?: &quot;&quot;
+def actualMessages = []
+
+if (vars.get(&quot;msg_data&quot;)  &amp;&amp; vars.get(&quot;msg_data&quot;)  != &quot;NOT_FOUND&quot;) actualMessages &lt;&lt; vars.get(&quot;msg_data&quot;)
+if (vars.get(&quot;msg_title&quot;) &amp;&amp; vars.get(&quot;msg_title&quot;) != &quot;NOT_FOUND&quot;) actualMessages &lt;&lt; vars.get(&quot;msg_title&quot;)
+if (vars.get(&quot;msg_desc&quot;)  &amp;&amp; vars.get(&quot;msg_desc&quot;)  != &quot;NOT_FOUND&quot;) actualMessages &lt;&lt; vars.get(&quot;msg_desc&quot;)
+
+def actual = actualMessages.join(&quot;|&quot;)
+
+// === Step 2: Structured Logging ===
+log.info(&quot;================================================================&quot;)
+log.info(&quot;Controller   : ${controllerName}&quot;)
+log.info(&quot;Request Name : ${requestName}&quot;)
+log.info(&quot;================================================================&quot;)
+log.info(&quot;📌 Portfolio Title       : ${vars.get(&apos;PO_Title&apos;)}&quot;)
+log.info(&quot;📝 Portfolio Description : ${vars.get(&apos;PO_Description&apos;)}&quot;)
+log.info(&quot;💬 Portfolio Comments    : ${vars.get(&apos;PO_Comments&apos;)}&quot;)
+log.info(&quot;✅ Expected              : ${expected}&quot;)
+log.info(&quot;🛑 Actual                : ${actual}&quot;)
+log.info(&quot;================================================================&quot;)
+
+// === Step 3: Assertion ===
+if (!actual.equals(expected)) {
+    AssertionResult.setFailure(true)
+    AssertionResult.setFailureMessage(&quot;❌ Expected &apos;${expected}&apos; but got &apos;${actual}&apos;&quot;)
+    log.error(&quot;❌ Negative test failed: Expected &apos;${expected}&apos;, got &apos;${actual}&apos;&quot;)
+} else {
+    log.info(&quot;✅ Negative test passed&quot;)
+}
+</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+          </hashTree>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <url>true</url>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Login" enabled="true">
+        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <stringProp name="LoopController.loops">1</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="THREAD_COUNT" elementType="Argument">
+              <stringProp name="Argument.name">THREAD_COUNT</stringProp>
+              <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc"></stringProp>
+            </elementProp>
+            <elementProp name="RAMP_UP" elementType="Argument">
+              <stringProp name="Argument.name">RAMP_UP</stringProp>
+              <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="LOOP_COUNT" elementType="Argument">
+              <stringProp name="Argument.name">LOOP_COUNT</stringProp>
+              <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="PROTOCOL" elementType="Argument">
+              <stringProp name="Argument.name">PROTOCOL</stringProp>
+              <stringProp name="Argument.value">https</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="BASE_URL" elementType="Argument">
+              <stringProp name="Argument.name">BASE_URL</stringProp>
+              <stringProp name="Argument.value">v10-integration.dev.api.test.benchmarkestimating.com</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="API_VERSION" elementType="Argument">
+              <stringProp name="Argument.name">API_VERSION</stringProp>
+              <stringProp name="Argument.value">v2</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+          <stringProp name="HTTPSampler.domain">${BASE_URL}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${PROTOCOL}</stringProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Login Negative Test Scenarios" enabled="true">
+          <stringProp name="LoopController.loops">4</stringProp>
+        </LoopController>
+        <hashTree>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+            <stringProp name="delimiter">,</stringProp>
+            <stringProp name="fileEncoding">UTF-8</stringProp>
+            <stringProp name="filename">C:\Users\radhakrishnanv\Working Project\Benchmark_Estimating\Integration Environment\CSV data files\Login_negative_test_data.csv</stringProp>
+            <boolProp name="ignoreFirstLine">false</boolProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">true</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="variableNames"></stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login" enabled="true">
+            <stringProp name="HTTPSampler.path">/api/v2/auth/login</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;name&quot;: &quot;${username}&quot;,&#xd;
+    &quot;password&quot;: &quot;${password}&quot;,&#xd;
+    &quot;userType&quot;: &quot;string&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">msg1;msg2</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.message;$.errors.Name[0]</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers">0;0</stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">NOT_FOUND;NOT_FOUND</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="JSR223 Assertion" enabled="true">
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">
+// === Metadata ===
+def controllerName = &quot;Negative Login Validation&quot;
+def requestName    = &quot;Validate Error Message&quot;
+
+// === Step 1: Get variables ===
+def expected = vars.get(&quot;expected_error&quot;) ?: &quot;&quot;
+def actual   = vars.get(&quot;msg1&quot;) &amp;&amp; vars.get(&quot;msg1&quot;) != &quot;NOT_FOUND&quot; 
+             ? vars.get(&quot;msg1&quot;) 
+             : (vars.get(&quot;msg2&quot;) ?: &quot;&quot;)
+
+// === Step 2: Logging ===
+log.info(&quot;================================================================&quot;)
+log.info(&quot;Controller   : ${controllerName}&quot;)
+log.info(&quot;Request Name : ${requestName}&quot;)
+log.info(&quot;================================================================&quot;)
+log.info(&quot;👤 Username  : ${vars.get(&apos;username&apos;)}&quot;)
+log.info(&quot;🔑 Password  : ${vars.get(&apos;password&apos;)}&quot;)
+log.info(&quot;✅ Expected  : ${expected}&quot;)
+log.info(&quot;🛑 Actual    : ${actual}&quot;)
+log.info(&quot;================================================================&quot;)
+
+// === Step 3: Assertion ===
+if (!actual.equals(expected)) {
+    AssertionResult.setFailure(true)
+    AssertionResult.setFailureMessage(&quot;❌ Expected &apos;${expected}&apos; but got &apos;${actual}&apos;&quot;)
+    log.error(&quot;❌ Negative test failed: Expected &apos;${expected}&apos;, got &apos;${actual}&apos;&quot;)
+} else {
+    log.info(&quot;✅ Negative test passed&quot;)
+}
+</stringProp>
+              <stringProp name="scriptLanguage">groovy</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+          </hashTree>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <url>true</url>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Portfolio" enabled="false">
+        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <stringProp name="LoopController.loops">1</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Login Negative Test Scenarios" enabled="true">
+          <stringProp name="LoopController.loops">4</stringProp>
+        </LoopController>
+        <hashTree>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+            <stringProp name="delimiter">,</stringProp>
+            <stringProp name="fileEncoding">UTF-8</stringProp>
+            <stringProp name="filename">C:\Users\radhakrishnanv\Working Project\Benchmark_Estimating\Integration Environment\CSV data files\Login_negative_test_data.csv</stringProp>
+            <boolProp name="ignoreFirstLine">false</boolProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">true</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="variableNames"></stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login" enabled="true">
+            <stringProp name="HTTPSampler.path">/api/v2/auth/login</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;name&quot;: &quot;${username}&quot;,&#xd;
+    &quot;password&quot;: &quot;${password}&quot;,&#xd;
+    &quot;userType&quot;: &quot;string&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">msg1;msg2</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.message;$.errors.Name[0]</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers">0;0</stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">NOT_FOUND;NOT_FOUND</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="JSR223 Assertion" enabled="true">
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">
+// === Metadata ===
+def controllerName = &quot;Negative Login Validation&quot;
+def requestName    = &quot;Validate Error Message&quot;
+
+// === Step 1: Get variables ===
+def expected = vars.get(&quot;expected_error&quot;) ?: &quot;&quot;
+def actual   = vars.get(&quot;msg1&quot;) &amp;&amp; vars.get(&quot;msg1&quot;) != &quot;NOT_FOUND&quot; 
+             ? vars.get(&quot;msg1&quot;) 
+             : (vars.get(&quot;msg2&quot;) ?: &quot;&quot;)
+
+// === Step 2: Logging ===
+log.info(&quot;================================================================&quot;)
+log.info(&quot;Controller   : ${controllerName}&quot;)
+log.info(&quot;Request Name : ${requestName}&quot;)
+log.info(&quot;================================================================&quot;)
+log.info(&quot;👤 Username  : ${vars.get(&apos;username&apos;)}&quot;)
+log.info(&quot;🔑 Password  : ${vars.get(&apos;password&apos;)}&quot;)
+log.info(&quot;✅ Expected  : ${expected}&quot;)
+log.info(&quot;🛑 Actual    : ${actual}&quot;)
+log.info(&quot;================================================================&quot;)
+
+// === Step 3: Assertion ===
+if (!actual.equals(expected)) {
+    AssertionResult.setFailure(true)
+    AssertionResult.setFailureMessage(&quot;❌ Expected &apos;${expected}&apos; but got &apos;${actual}&apos;&quot;)
+    log.error(&quot;❌ Negative test failed: Expected &apos;${expected}&apos;, got &apos;${actual}&apos;&quot;)
+} else {
+    log.info(&quot;✅ Negative test passed&quot;)
+}
+</stringProp>
+              <stringProp name="scriptLanguage">groovy</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+          </hashTree>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <url>true</url>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+          <stringProp name="HTTPSampler.domain">${BASE_URL}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${PROTOCOL}</stringProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="THREAD_COUNT" elementType="Argument">
+              <stringProp name="Argument.name">THREAD_COUNT</stringProp>
+              <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc"></stringProp>
+            </elementProp>
+            <elementProp name="RAMP_UP" elementType="Argument">
+              <stringProp name="Argument.name">RAMP_UP</stringProp>
+              <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="LOOP_COUNT" elementType="Argument">
+              <stringProp name="Argument.name">LOOP_COUNT</stringProp>
+              <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="PROTOCOL" elementType="Argument">
+              <stringProp name="Argument.name">PROTOCOL</stringProp>
+              <stringProp name="Argument.value">https</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="BASE_URL" elementType="Argument">
+              <stringProp name="Argument.name">BASE_URL</stringProp>
+              <stringProp name="Argument.value">v10-integration.dev.api.test.benchmarkestimating.com</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="API_VERSION" elementType="Argument">
+              <stringProp name="Argument.name">API_VERSION</stringProp>
+              <stringProp name="Argument.value">v2</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Credentials ">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="USERNAME" elementType="Argument">
+              <stringProp name="Argument.name">USERNAME</stringProp>
+              <stringProp name="Argument.value">${__P(username,main)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="PASSWORD" elementType="Argument">
+              <stringProp name="Argument.name">PASSWORD</stringProp>
+              <stringProp name="Argument.value">${__P(password,Welcome123)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="01_Authentication" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login_API" enabled="true">
+            <stringProp name="HTTPSampler.path">/api/v2/auth/login</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;name&quot;: &quot;${USERNAME}&quot;,&#xd;
+    &quot;password&quot;: &quot;${PASSWORD}&quot;,&#xd;
+    &quot;userType&quot;: &quot;string&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">
+import groovy.json.JsonSlurper 
+
+// === 1. Capture Request Payload ===
+def username = vars.get(&quot;USERNAME&quot;) ?: &quot;USERNAME_NOT_SET&quot;
+def password = vars.get(&quot;PASSWORD&quot;) ?: &quot;PASSWORD_NOT_SET&quot;
+
+// === 2. Extract response and parse ===
+def response = prev.getResponseDataAsString()
+def authToken = &quot;AUTH_TOKEN_NOT_SET&quot;
+
+if (response) {
+    try {
+        def json = new JsonSlurper().parseText(response)
+        def extractedToken = json?.data
+        if (extractedToken) {
+            authToken = extractedToken.toString()
+            vars.put(&quot;authToken&quot;, authToken)
+        } else {
+            log.warn(&quot;⚠️ authToken missing in response&quot;)
+            System.out.println(&quot;⚠️ authToken missing in response&quot;)
+        }
+    } catch (Exception e) {
+        log.error(&quot;❌ JSON parse error&quot;, e)
+        System.out.println(&quot;❌ JSON parse error: &quot; + e.message)
+    }
+} else {
+    log.warn(&quot;❗ Response is empty&quot;)
+    System.out.println(&quot;❗ Response is empty&quot;)
+}
+
+// === 3. Log and show output ===
+def payloadLog = &quot;&quot;&quot;
+====================== RUNTIME DEBUG INFO ======================
+
+&gt;&gt;&gt; REQUEST PAYLOAD:
+USERNAME : $username
+PASSWORD : $password
+
+&gt;&gt;&gt; RESPONSE DATA:
+Extracted authToken :
+$authToken
+
+================================================================
+&quot;&quot;&quot;
+
+// Print to JMeter GUI log
+log.info(payloadLog)
+
+// Print to console in non-GUI mode
+System.out.println(payloadLog)
+
+// Also set sample label and response (GUI only)
+prev.setSampleLabel(&quot;Log Payload + Token&quot;)
+prev.setResponseData(payloadLog, &quot;UTF-8&quot;)
+
+
+</stringProp>
+            </JSR223PostProcessor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Create Portfolio Negative Test Scenarios">
+          <stringProp name="LoopController.loops">4</stringProp>
+        </LoopController>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${authToken}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config">
+            <stringProp name="delimiter">,</stringProp>
+            <stringProp name="fileEncoding">UTF-8</stringProp>
+            <stringProp name="filename">C:\Users\radhakrishnanv\Working Project\Benchmark_Estimating\Integration Environment\CSV data files\Portfolio_negative_test_data.csv</stringProp>
+            <boolProp name="ignoreFirstLine">false</boolProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">true</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="variableNames"></stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Portfolio">
+            <stringProp name="HTTPSampler.path">/api/v2/project-composition/create</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;title&quot;: &quot;${PO_Title}&quot;,&#xd;
+  &quot;description&quot;: &quot;${PO_Description}&quot;,&#xd;
+  &quot;comments&quot;: &quot;${PO_Comments}&quot;,&#xd;
+  &quot;parentId&quot;: null,&#xd;
+  &quot;recordType&quot;: 0,&#xd;
+  &quot;PortfolioId&quot;: null&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract Error/Validation Messages" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">msg_data;msg_title;msg_desc</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data;$.errors.Title[0];$.errors.Description[0]</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers">0;0;0</stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">NOT_FOUND;NOT_FOUND;NOT_FOUND</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Validate Expected Message" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="script">//
+//              
+//              if (vars.get(&quot;msg_data&quot;) != &quot;NOT_FOUND&quot;) actualMessages &lt;&lt; vars.get(&quot;msg_data&quot;)
+//              if (vars.get(&quot;msg_title&quot;) != &quot;NOT_FOUND&quot;) actualMessages &lt;&lt; vars.get(&quot;msg_title&quot;)
+//              if (vars.get(&quot;msg_desc&quot;) != &quot;NOT_FOUND&quot;) actualMessages &lt;&lt; vars.get(&quot;msg_desc&quot;)
+//
+//              def actual = actualMessages.join(&quot;|&quot;)
+//
+//              log.info(&quot;=== Portfolio Creation Negative Test ===&quot;)
+//              log.info(&quot;Title: ${vars.get(&apos;PO_Title&apos;)} | Description: ${vars.get(&apos;PO_Description&apos;)} | Comments: ${vars.get(&apos;PO_Comments&apos;)}&quot;)
+//              log.info(&quot;Expected: ${expected}&quot;)
+//              log.info(&quot;Actual: ${actual}&quot;)
+//
+//              if (!actual.equals(expected)) {
+//                  AssertionResult.setFailure(true)
+//                  AssertionResult.setFailureMessage(&quot;Expected &apos;${expected}&apos; but got &apos;${actual}&apos;&quot;)
+//              }
+//            
+
+
+
+
+//
+//// === Metadata ===
+//def controllerName = &quot;Portfolio Creation - Negative Test&quot;
+//def requestName    = &quot;Validate Error Messages&quot;
+//
+//// === Step 1: Prepare variables ===
+//def expected = vars.get(&quot;expected_error&quot;) ?: &quot;&quot;
+//def actualMessages = []
+//
+//if (vars.get(&quot;msg_data&quot;)  &amp;&amp; vars.get(&quot;msg_data&quot;)  != &quot;NOT_FOUND&quot;) actualMessages &lt;&lt; vars.get(&quot;msg_data&quot;)
+//if (vars.get(&quot;msg_title&quot;) &amp;&amp; vars.get(&quot;msg_title&quot;) != &quot;NOT_FOUND&quot;) actualMessages &lt;&lt; vars.get(&quot;msg_title&quot;)
+//if (vars.get(&quot;msg_desc&quot;)  &amp;&amp; vars.get(&quot;msg_desc&quot;)  != &quot;NOT_FOUND&quot;) actualMessages &lt;&lt; vars.get(&quot;msg_desc&quot;)
+//
+//def actual = actualMessages.join(&quot;|&quot;)
+//
+//// === Step 2: Structured Logging ===
+//log.info(&quot;================================================================&quot;)
+//log.info(&quot;Controller   : ${controllerName}&quot;)
+//log.info(&quot;Request Name : ${requestName}&quot;)
+//log.info(&quot;================================================================&quot;)
+//log.info(&quot;📌 Portfolio Title       : ${vars.get(&apos;PO_Title&apos;)}&quot;)
+//log.info(&quot;📝 Portfolio Description : ${vars.get(&apos;PO_Description&apos;)}&quot;)
+//log.info(&quot;💬 Portfolio Comments    : ${vars.get(&apos;PO_Comments&apos;)}&quot;)
+//log.info(&quot;✅ Expected              : ${expected}&quot;)
+//log.info(&quot;🛑 Actual                : ${actual}&quot;)
+//log.info(&quot;================================================================&quot;)
+//
+//// === Step 3: Assertion ===
+//if (!actual.equals(expected)) {
+//    AssertionResult.setFailure(true)
+//    AssertionResult.setFailureMessage(&quot;❌ Expected &apos;${expected}&apos; but got &apos;${actual}&apos;&quot;)
+//    log.error(&quot;❌ Negative test failed: Expected &apos;${expected}&apos;, got &apos;${actual}&apos;&quot;)
+//} else {
+//    log.info(&quot;✅ Negative test passed&quot;)
+//}
+
+
+
+// === Metadata ===
+def controllerName = &quot;Portfolio Creation - Negative Test&quot;
+def requestName    = &quot;Validate Error Messages&quot;
+
+// === Step 1: Prepare variables ===
+def expected = vars.get(&quot;Expected_Message&quot;)?.trim() ?: &quot;&quot;
+def actualMessages = []
+
+def msg_data = vars.get(&quot;msg_data&quot;)?.trim()
+def msg_title = vars.get(&quot;msg_title&quot;)?.trim()
+def msg_desc = vars.get(&quot;msg_desc&quot;)?.trim()
+
+if (msg_data &amp;&amp; msg_data != &quot;NOT_FOUND&quot;) actualMessages &lt;&lt; msg_data
+if (msg_title &amp;&amp; msg_title != &quot;NOT_FOUND&quot;) actualMessages &lt;&lt; msg_title
+if (msg_desc &amp;&amp; msg_desc != &quot;NOT_FOUND&quot;) actualMessages &lt;&lt; msg_desc
+
+def actual = actualMessages.join(&quot; | &quot;).trim()
+
+// === Step 2: Structured Logging ===
+log.info(&quot;================================================================&quot;)
+log.info(&quot;Controller   : ${controllerName}&quot;)
+log.info(&quot;Request Name : ${requestName}&quot;)
+log.info(&quot;================================================================&quot;)
+log.info(&quot;📌 Portfolio Title       : ${vars.get(&apos;PO_Title&apos;)}&quot;)
+log.info(&quot;📝 Portfolio Description : ${vars.get(&apos;PO_Description&apos;)}&quot;)
+log.info(&quot;💬 Portfolio Comments    : ${vars.get(&apos;PO_Comments&apos;)}&quot;)
+log.info(&quot;✅ Expected              : ${expected}&quot;)
+log.info(&quot;🛑 Actual                : ${actual}&quot;)
+log.info(&quot;================================================================&quot;)
+
+// === Step 3: Assertion ===
+if (!actual.equals(expected)) {
+    AssertionResult.setFailure(true)
+    AssertionResult.setFailureMessage(&quot;❌ Expected &apos;${expected}&apos; but got &apos;${actual}&apos;&quot;)
+    log.error(&quot;❌ Negative test failed: Expected &apos;${expected}&apos;, got &apos;${actual}&apos;&quot;)
+} else {
+    log.info(&quot;✅ Negative test passed&quot;)
+}
+
+</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+          </hashTree>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <url>true</url>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Programme" enabled="false">
+        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <stringProp name="LoopController.loops">1</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+          <stringProp name="HTTPSampler.domain">${BASE_URL}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${PROTOCOL}</stringProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Credentials " enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="USERNAME" elementType="Argument">
+              <stringProp name="Argument.name">USERNAME</stringProp>
+              <stringProp name="Argument.value">${__P(username,main)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="PASSWORD" elementType="Argument">
+              <stringProp name="Argument.name">PASSWORD</stringProp>
+              <stringProp name="Argument.value">${__P(password,Welcome123)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="THREAD_COUNT" elementType="Argument">
+              <stringProp name="Argument.name">THREAD_COUNT</stringProp>
+              <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc"></stringProp>
+            </elementProp>
+            <elementProp name="RAMP_UP" elementType="Argument">
+              <stringProp name="Argument.name">RAMP_UP</stringProp>
+              <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="LOOP_COUNT" elementType="Argument">
+              <stringProp name="Argument.name">LOOP_COUNT</stringProp>
+              <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="PROTOCOL" elementType="Argument">
+              <stringProp name="Argument.name">PROTOCOL</stringProp>
+              <stringProp name="Argument.value">https</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="BASE_URL" elementType="Argument">
+              <stringProp name="Argument.name">BASE_URL</stringProp>
+              <stringProp name="Argument.value">v10-integration.dev.api.test.benchmarkestimating.com</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="API_VERSION" elementType="Argument">
+              <stringProp name="Argument.name">API_VERSION</stringProp>
+              <stringProp name="Argument.value">v2</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="01_Authentication" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login_API" enabled="true">
+            <stringProp name="HTTPSampler.path">/api/v2/auth/login</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;name&quot;: &quot;${USERNAME}&quot;,&#xd;
+    &quot;password&quot;: &quot;${PASSWORD}&quot;,&#xd;
+    &quot;userType&quot;: &quot;string&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">
+import groovy.json.JsonSlurper 
+
+// === 1. Capture Request Payload ===
+def username = vars.get(&quot;USERNAME&quot;) ?: &quot;USERNAME_NOT_SET&quot;
+def password = vars.get(&quot;PASSWORD&quot;) ?: &quot;PASSWORD_NOT_SET&quot;
+
+// === 2. Extract response and parse ===
+def response = prev.getResponseDataAsString()
+def authToken = &quot;AUTH_TOKEN_NOT_SET&quot;
+
+if (response) {
+    try {
+        def json = new JsonSlurper().parseText(response)
+        def extractedToken = json?.data
+        if (extractedToken) {
+            authToken = extractedToken.toString()
+            vars.put(&quot;authToken&quot;, authToken)
+        } else {
+            log.warn(&quot;⚠️ authToken missing in response&quot;)
+            System.out.println(&quot;⚠️ authToken missing in response&quot;)
+        }
+    } catch (Exception e) {
+        log.error(&quot;❌ JSON parse error&quot;, e)
+        System.out.println(&quot;❌ JSON parse error: &quot; + e.message)
+    }
+} else {
+    log.warn(&quot;❗ Response is empty&quot;)
+    System.out.println(&quot;❗ Response is empty&quot;)
+}
+
+// === 3. Log and show output ===
+def payloadLog = &quot;&quot;&quot;
+====================== RUNTIME DEBUG INFO ======================
+
+&gt;&gt;&gt; REQUEST PAYLOAD:
+USERNAME : $username
+PASSWORD : $password
+
+&gt;&gt;&gt; RESPONSE DATA:
+Extracted authToken :
+$authToken
+
+================================================================
+&quot;&quot;&quot;
+
+// Print to JMeter GUI log
+log.info(payloadLog)
+
+// Print to console in non-GUI mode
+System.out.println(payloadLog)
+
+// Also set sample label and response (GUI only)
+prev.setSampleLabel(&quot;Log Payload + Token&quot;)
+prev.setResponseData(payloadLog, &quot;UTF-8&quot;)
+
+
+</stringProp>
+            </JSR223PostProcessor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

@@ -1,0 +1,1687 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Drag and Drop - Item Library Files API">
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+    </TestPlan>
+    <hashTree>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Content-Type</stringProp>
+            <stringProp name="Header.value">application/json</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="THREAD_COUNT" elementType="Argument">
+            <stringProp name="Argument.name">THREAD_COUNT</stringProp>
+            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc"></stringProp>
+          </elementProp>
+          <elementProp name="RAMP_UP" elementType="Argument">
+            <stringProp name="Argument.name">RAMP_UP</stringProp>
+            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="LOOP_COUNT" elementType="Argument">
+            <stringProp name="Argument.name">LOOP_COUNT</stringProp>
+            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="BASE_URL" elementType="Argument">
+            <stringProp name="Argument.name">BASE_URL</stringProp>
+            <stringProp name="Argument.value">v10-integration.dev.api.test.benchmarkestimating.com</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Environment</stringProp>
+          </elementProp>
+          <elementProp name="PROTOCOL" elementType="Argument">
+            <stringProp name="Argument.name">PROTOCOL</stringProp>
+            <stringProp name="Argument.value">https</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Environment</stringProp>
+          </elementProp>
+          <elementProp name="API_VERSION" elementType="Argument">
+            <stringProp name="Argument.name">API_VERSION</stringProp>
+            <stringProp name="Argument.value">v2</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Environment</stringProp>
+          </elementProp>
+          <elementProp name="USERNAME" elementType="Argument">
+            <stringProp name="Argument.name">USERNAME</stringProp>
+            <stringProp name="Argument.value">${__P(username,main)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Auth</stringProp>
+          </elementProp>
+          <elementProp name="PASSWORD" elementType="Argument">
+            <stringProp name="Argument.name">PASSWORD</stringProp>
+            <stringProp name="Argument.value">${__P(password,Welcome123)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Auth</stringProp>
+          </elementProp>
+          <elementProp name="PORTFOLIO_TITLE" elementType="Argument">
+            <stringProp name="Argument.name">PORTFOLIO_TITLE</stringProp>
+            <stringProp name="Argument.value">Karan</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Portfolio</stringProp>
+          </elementProp>
+          <elementProp name="PROGRAMME_TITLE" elementType="Argument">
+            <stringProp name="Argument.name">PROGRAMME_TITLE</stringProp>
+            <stringProp name="Argument.value">kl</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Programme </stringProp>
+          </elementProp>
+          <elementProp name="PROJECT_TITLE" elementType="Argument">
+            <stringProp name="Argument.name">PROJECT_TITLE</stringProp>
+            <stringProp name="Argument.value">New Test Project</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Project</stringProp>
+          </elementProp>
+          <elementProp name="PROJECT_DESC" elementType="Argument">
+            <stringProp name="Argument.name">PROJECT_DESC</stringProp>
+            <stringProp name="Argument.value">Project_NH</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Project</stringProp>
+          </elementProp>
+          <elementProp name="ESTIMATE_TITLE" elementType="Argument">
+            <stringProp name="Argument.name">ESTIMATE_TITLE</stringProp>
+            <stringProp name="Argument.value">RETY</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="projectTitle" elementType="Argument">
+            <stringProp name="Argument.name">projectTitle</stringProp>
+            <stringProp name="Argument.value">Demo Project NH</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="childIndex" elementType="Argument">
+            <stringProp name="Argument.name">childIndex</stringProp>
+            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ITEM_LIBRARY_COUNT" elementType="Argument">
+            <stringProp name="Argument.name">ITEM_LIBRARY_COUNT</stringProp>
+            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Section description" elementType="Argument">
+            <stringProp name="Argument.name">Section description</stringProp>
+            <stringProp name="Argument.value">DnD_100</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults">
+        <stringProp name="HTTPSampler.domain">${BASE_URL}</stringProp>
+        <stringProp name="HTTPSampler.protocol">${PROTOCOL}</stringProp>
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+          <collectionProp name="Arguments.arguments"/>
+        </elementProp>
+        <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+      </ConfigTestElement>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Negative Scenario Drag and Drop - Item Library Files API">
+        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <stringProp name="LoopController.loops">1</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="01_Authentication" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login_API" enabled="true">
+            <stringProp name="HTTPSampler.path">/api/v2/auth/login</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;name&quot;: &quot;${USERNAME}&quot;,&#xd;
+    &quot;password&quot;: &quot;${PASSWORD}&quot;,&#xd;
+    &quot;userType&quot;: &quot;string&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Extract and Log Auth Token " enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">
+import groovy.json.JsonSlurper 
+
+// === 1. Capture Request Payload ===
+def username = vars.get(&quot;USERNAME&quot;) ?: &quot;USERNAME_NOT_SET&quot;
+def password = vars.get(&quot;PASSWORD&quot;) ?: &quot;PASSWORD_NOT_SET&quot;
+
+// === 2. Extract response and parse ===
+def response = prev.getResponseDataAsString()
+def authToken = &quot;AUTH_TOKEN_NOT_SET&quot;
+
+if (response) {
+    try {
+        def json = new JsonSlurper().parseText(response)
+        def extractedToken = json?.data
+        if (extractedToken) {
+            authToken = extractedToken.toString()
+            vars.put(&quot;authToken&quot;, authToken)
+        } else {
+            log.warn(&quot;⚠️ authToken missing in response&quot;)
+            System.out.println(&quot;⚠️ authToken missing in response&quot;)
+        }
+    } catch (Exception e) {
+        log.error(&quot;❌ JSON parse error&quot;, e)
+        System.out.println(&quot;❌ JSON parse error: &quot; + e.message)
+    }
+} else {
+    log.warn(&quot;❗ Response is empty&quot;)
+    System.out.println(&quot;❗ Response is empty&quot;)
+}
+
+// === 3. Log and show output ===
+def payloadLog = &quot;&quot;&quot;
+====================== RUNTIME DEBUG INFO ======================
+
+&gt;&gt;&gt; REQUEST PAYLOAD:
+USERNAME : $username
+PASSWORD : $password
+
+&gt;&gt;&gt; RESPONSE DATA:
+Extracted authToken :
+$authToken
+
+================================================================
+&quot;&quot;&quot;
+
+// Print to JMeter GUI log
+log.info(payloadLog)
+
+// Print to console in non-GUI mode
+System.out.println(payloadLog)
+
+// Also set sample label and response (GUI only)
+prev.setSampleLabel(&quot;Log Payload + Token&quot;)
+prev.setResponseData(payloadLog, &quot;UTF-8&quot;)
+
+</stringProp>
+            </JSR223PostProcessor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Drag and Drop Item Library Items files" enabled="true"/>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${authToken}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Expand till Project" enabled="true"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Portfolio List" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/project-composition/get</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;leftValue&quot;: 1,&#xd;
+    &quot;offset&quot;: 0,&#xd;
+    &quot;recordsPerPage&quot;: 450,&#xd;
+    &quot;aggregateLevel&quot;: &quot;portfolio&quot;,&#xd;
+    &quot;expandedList&quot;: [],&#xd;
+    &quot;portfolioId&quot;: 0,&#xd;
+    &quot;programmeId&quot;: 0,&#xd;
+    &quot;schemeId&quot;: 0&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">
+import com.jayway.jsonpath.JsonPath
+
+// ======================== START: PORTFOLIO ID EXTRACTION ========================
+def response = prev.getResponseDataAsString()
+def portfolioTitle = vars.get(&quot;PORTFOLIO_TITLE&quot;) ?: &quot;PORTFOLIO_TITLE_NOT_SET&quot;
+
+def output = new StringBuilder()
+output.append(&quot;\n==================== 📁 PORTFOLIO EXTRACTION START ====================\n&quot;)
+output.append(&quot;🔍 Title to Match: &apos;${portfolioTitle}&apos;\n&quot;)
+output.append(&quot;------------------------------------------------------------------\n&quot;)
+
+try {
+    def idList = JsonPath.read(response, &apos;$.data[?(@.title == &quot;&apos; + portfolioTitle + &apos;&quot;)].id&apos;)
+
+    if (idList &amp;&amp; idList.size() &gt; 0) {
+        def portfolioId = idList[0]
+        vars.put(&quot;portfolioId&quot;, portfolioId.toString())
+        output.append(&quot;✅ portfolioId extracted successfully: ${portfolioId}\n&quot;)
+    } else {
+        vars.put(&quot;portfolioId&quot;, &quot;NOT_FOUND&quot;)
+        output.append(&quot;⚠️  No portfolio found with title: &apos;${portfolioTitle}&apos;\n&quot;)
+    }
+} catch (Exception e) {
+    vars.put(&quot;portfolioId&quot;, &quot;EXTRACTION_ERROR&quot;)
+    output.append(&quot;❌ Error during portfolioId extraction: ${e.getMessage()}\n&quot;)
+}
+
+output.append(&quot;------------------------------------------------------------------\n&quot;)
+output.append(&quot;==================== 📁 PORTFOLIO EXTRACTION END =====================\n&quot;)
+
+// Log to JMeter (GUI or log file)
+log.info(output.toString())
+
+// Print to console (for command-line / non-GUI mode)
+System.out.println(output.toString())
+// ========================= END: PORTFOLIO ID EXTRACTION =========================
+</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Portfolio" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/project-composition/get</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;leftValue&quot;: 1,&#xd;
+    &quot;offset&quot;: 0,&#xd;
+    &quot;recordsPerPage&quot;: 450,&#xd;
+    &quot;aggregateLevel&quot;: &quot;portfolio&quot;,&#xd;
+    &quot;expandedList&quot;: [${portfolioId}],&#xd;
+    &quot;portfolioId&quot;: 0,&#xd;
+    &quot;programmeId&quot;: 0,&#xd;
+    &quot;schemeId&quot;: 0&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">
+import com.jayway.jsonpath.JsonPath
+
+// ===================== START: PROGRAMME ID EXTRACTION =====================
+def response = prev.getResponseDataAsString()
+def programmeTitle = vars.get(&quot;PROGRAMME_TITLE&quot;) ?: &quot;PROGRAMME_TITLE_NOT_SET&quot;
+
+// Build output log
+def output = new StringBuilder()
+output.append(&quot;\n==================== 🎯 PROGRAMME EXTRACTION START ====================\n&quot;)
+output.append(&quot;🔍 Title to Match: &apos;${programmeTitle}&apos;\n&quot;)
+output.append(&quot;------------------------------------------------------------------\n&quot;)
+
+try {
+    def idList = JsonPath.read(response, &apos;$.data[?(@.title == &quot;&apos; + programmeTitle + &apos;&quot;)].id&apos;)
+
+    if (idList &amp;&amp; idList.size() &gt; 0) {
+        def programmeId = idList[0]
+        vars.put(&quot;programmeId&quot;, programmeId.toString())
+        output.append(&quot;✅ programmeId extracted successfully: ${programmeId}\n&quot;)
+    } else {
+        vars.put(&quot;programmeId&quot;, &quot;NOT_FOUND&quot;)
+        output.append(&quot;⚠️  No programme found with title: &apos;${programmeTitle}&apos;\n&quot;)
+    }
+} catch (Exception e) {
+    vars.put(&quot;programmeId&quot;, &quot;EXTRACTION_ERROR&quot;)
+    output.append(&quot;❌ Error during programmeId extraction: ${e.getMessage()}\n&quot;)
+}
+
+output.append(&quot;------------------------------------------------------------------\n&quot;)
+output.append(&quot;==================== 🎯 PROGRAMME EXTRACTION END ======================\n&quot;)
+
+// Log to JMeter GUI and log file
+log.info(output.toString())
+
+// Print to console (non-GUI mode)
+System.out.println(output.toString())
+// ====================== END: PROGRAMME ID EXTRACTION ======================
+
+</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Programe" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/project-composition/get</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;leftValue&quot;: 1,&#xd;
+    &quot;offset&quot;: 0,&#xd;
+    &quot;recordsPerPage&quot;: 450,&#xd;
+    &quot;aggregateLevel&quot;: &quot;programme&quot;,&#xd;
+    &quot;expandedList&quot;: [${portfolioId},${programmeId}],&#xd;
+    &quot;portfolioId&quot;: 0,&#xd;
+    &quot;programmeId&quot;: 0,&#xd;
+    &quot;schemeId&quot;: 0&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">
+import com.jayway.jsonpath.JsonPath 
+
+// ================= START: Project ID Extraction =================
+
+// Get response as a string
+def response = prev.getResponseDataAsString()
+
+// Fetch the project title from JMeter variable
+def projectTitle = vars.get(&quot;PROJECT_TITLE&quot;) ?: &quot;PROJECT_TITLE_NOT_SET&quot;
+
+// Prepare logging block
+def logBlock = new StringBuilder()
+logBlock &lt;&lt; &quot;\n================================================================\n&quot;
+logBlock &lt;&lt; &quot;🏗️  [JSR223] Extracting projectId for project title\n&quot;
+logBlock &lt;&lt; &quot;🔍 Matching PROJECT_TITLE : &apos;${projectTitle}&apos;\n&quot;
+logBlock &lt;&lt; &quot;----------------------------------------------------------------\n&quot;
+
+try {
+    // Apply JSONPath to extract the matching project ID
+    def idList = JsonPath.read(response, &apos;$.data[?(@.title == &quot;&apos; + projectTitle + &apos;&quot;)].id&apos;)
+
+    if (idList &amp;&amp; idList.size() &gt; 0) {
+        def projectId = idList[0]
+        vars.put(&quot;projectId&quot;, projectId.toString())
+        logBlock &lt;&lt; &quot;✅ projectId extracted successfully: ${projectId}\n&quot;
+    } else {
+        vars.put(&quot;projectId&quot;, &quot;NOT_FOUND&quot;)
+        logBlock &lt;&lt; &quot;⚠️ No project found in response with title: &apos;${projectTitle}&apos;\n&quot;
+    }
+} catch (Exception e) {
+    vars.put(&quot;projectId&quot;, &quot;EXTRACTION_ERROR&quot;)
+    logBlock &lt;&lt; &quot;❌ Exception while extracting projectId: ${e.getMessage()}\n&quot;
+}
+
+logBlock &lt;&lt; &quot;----------------------------------------------------------------\n&quot;
+logBlock &lt;&lt; &quot;✅ [JSR223] Project ID Extraction Completed\n&quot;
+logBlock &lt;&lt; &quot;================================================================&quot;
+
+// Log to JMeter GUI/log file
+log.info(logBlock.toString())
+
+// Log to console (non-GUI mode)
+System.out.println(logBlock.toString())
+
+// ================= END: Project ID Extraction =================
+</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Project" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/project-composition/get/estimates/${projectId}</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">
+import groovy.json.JsonSlurper 
+
+// ======================= START: Logging - Start Block ========================
+def logBlock = new StringBuilder()
+logBlock.append(&quot;\n================================================================\n&quot;)
+logBlock.append(&quot;========== 🚀 EXTRACTING PROJECT DATA - Start of Execution =========\n&quot;)
+logBlock.append(&quot;----------------------------------------------------------------\n&quot;)
+// ======================= END: Logging - Start Block ==========================
+
+
+// ======================= START: JSON Response Parsing ========================
+def response = prev.getResponseDataAsString()
+def json = new JsonSlurper().parseText(response)
+def expectedTitle = vars.get(&quot;ESTIMATE_TITLE&quot;) ?: &quot;ESTIMATE_TITLE_NOT_SET&quot;
+logBlock.append(&quot;🎯 Matching projectTitle: &apos;${expectedTitle}&apos;\n&quot;)
+// ======================= END: JSON Response Parsing ==========================
+
+
+// ======================= START: Extract Only projectId by Title ==============
+def matchedItem = json?.data?.find { it.projectTitle == expectedTitle }
+
+if (matchedItem) {
+    def matchedProjectId = matchedItem.projectId ?: &quot;null&quot;
+    vars.put(&quot;projectIdByTitle&quot;, matchedProjectId.toString())
+    logBlock.append(&quot;✅ Extracted &apos;projectIdByTitle&apos; → ${matchedProjectId}\n&quot;)
+} else {
+    logBlock.append(&quot;❌ No match found for projectTitle: &apos;${expectedTitle}&apos;\n&quot;)
+}
+// ======================= END: Extract Only projectId by Title ================
+
+
+// ======================= START: Extract Complete Project Metadata ============
+if (matchedItem) {
+    def projectCompositionLinkId = matchedItem.projectCompositionLinkId ?: &quot;null&quot;
+    def projectId                = matchedItem.projectId ?: &quot;null&quot;
+    def projectDetailsId         = matchedItem.projectDetailsId ?: &quot;null&quot;
+    def projectQuoteNo           = matchedItem.projectQuoteNo ?: &quot;null&quot;
+    def title                    = matchedItem.projectTitle ?: &quot;null&quot;
+    def parentId                 = matchedItem.parentId ?: &quot;null&quot;
+    def childEstimateCount       = matchedItem.childEstimateCount ?: &quot;null&quot;
+
+    vars.put(&quot;projectCompositionLinkId&quot;, projectCompositionLinkId.toString())
+    vars.put(&quot;projectIds&quot;, projectId.toString())
+    vars.put(&quot;projectDetailsId&quot;, projectDetailsId.toString())
+    vars.put(&quot;projectQuoteNo&quot;, projectQuoteNo.toString())
+    vars.put(&quot;estimate_title&quot;, title.toString())
+    vars.put(&quot;parentId&quot;, parentId.toString())
+    vars.put(&quot;childEstimateCount&quot;, childEstimateCount.toString())
+
+    logBlock.append(&quot;📦 Extracted Metadata:\n&quot;)
+    logBlock.append(&quot;   🔧 projectCompositionLinkId : ${projectCompositionLinkId}\n&quot;)
+    logBlock.append(&quot;   🔧 projectId                : ${projectId}\n&quot;)
+    logBlock.append(&quot;   🔧 projectDetailsId         : ${projectDetailsId}\n&quot;)
+    logBlock.append(&quot;   🧾 projectQuoteNo           : ${projectQuoteNo}\n&quot;)
+    logBlock.append(&quot;   📌 parentId                 : ${parentId}\n&quot;)
+    logBlock.append(&quot;   📦 childEstimateCount       : ${childEstimateCount}\n&quot;)
+}
+// ======================= END: Extract Complete Project Metadata ==============
+
+
+// ======================= START: Logging - End Block ==========================
+logBlock.append(&quot;----------------------------------------------------------------\n&quot;)
+logBlock.append(&quot;========== ✅ EXTRACTING PROJECT DATA - End of Execution ==========\n&quot;)
+logBlock.append(&quot;================================================================\n&quot;)
+
+// Log to JMeter GUI/log file
+log.info(logBlock.toString())
+
+// Log to console (non-GUI mode)
+System.out.println(logBlock.toString())
+// ======================= END: Logging - End Block ============================
+</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Estimate Details Screen" enabled="true"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Estimate Details">
+              <stringProp name="HTTPSampler.path">/api/v2/estimate/get/details</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="estimateId" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">${projectIds}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">estimateId</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">
+import groovy.json.JsonSlurper 
+
+// === Parse response JSON ===
+def response = prev.getResponseDataAsString()
+def json = new JsonSlurper().parseText(response)
+
+// Start structured log block
+def logBlock = new StringBuilder()
+logBlock.append(&quot;\n======================================================================\n&quot;)
+logBlock.append(&quot;📘 JSR223 PostProcessor - Extract Project Detail and Child Info\n&quot;)
+logBlock.append(&quot;----------------------------------------------------------------------\n&quot;)
+
+// === Extract main project detail ===
+def projectDetail = json?.data?.projectDetail
+
+if (projectDetail) {
+    def projectDetailId    = projectDetail.id ?: &quot;null&quot;
+    def estimateId         = projectDetail.estimateId ?: &quot;null&quot;
+    def aggrDesc           = projectDetail.aggrDesc ?: &quot;null&quot;
+    def hashcode           = projectDetail.hashcode ?: &quot;null&quot;
+    def estimate           = projectDetail.estimate
+
+    def estimateObjId      = estimate?.id ?: &quot;null&quot;
+    def tenantId           = estimate?.tenantId ?: &quot;null&quot;
+    def estimateNsetId     = estimate?.estimateNsetId ?: &quot;null&quot;
+    def estimateRequestId  = estimate?.estimateRequestId ?: &quot;null&quot;
+    def projectQuoteNo     = estimate?.projectQuoteNo ?: &quot;null&quot;
+    def projectTitle       = estimate?.projectTitle ?: &quot;null&quot;
+    def projectCost        = estimate?.projectCost ?: &quot;null&quot;
+    def regionId           = estimate?.regionId ?: &quot;null&quot;
+    def estimateTypeId     = estimate?.estimateTypeId ?: &quot;null&quot;
+    def scenarioId         = estimate?.scenarioId ?: &quot;null&quot;
+
+    // Save to JMeter variables
+    vars.put(&quot;projectDetailId&quot;, projectDetailId.toString())
+    vars.put(&quot;estimateId&quot;, estimateId.toString())
+    vars.put(&quot;aggrDesc&quot;, aggrDesc.toString())
+    vars.put(&quot;hashcode&quot;, hashcode.toString())
+
+    vars.put(&quot;estimateObjId&quot;, estimateObjId.toString())
+    vars.put(&quot;tenantId&quot;, tenantId.toString())
+    vars.put(&quot;estimateNsetId&quot;, estimateNsetId.toString())
+    vars.put(&quot;estimateRequestId&quot;, estimateRequestId.toString())
+    vars.put(&quot;projectQuoteNo&quot;, projectQuoteNo.toString())
+    vars.put(&quot;projectTitle&quot;, projectTitle.toString())
+    vars.put(&quot;projectCost&quot;, projectCost.toString())
+    vars.put(&quot;regionId&quot;, regionId.toString())
+    vars.put(&quot;estimateTypeId&quot;, estimateTypeId.toString())
+    vars.put(&quot;scenarioId&quot;, scenarioId.toString())
+
+    logBlock.append(&quot;✅ Main Project Detail Extracted:\n&quot;)
+    logBlock.append(&quot;   ➤ projectDetailId    : ${projectDetailId}\n&quot;)
+    logBlock.append(&quot;   ➤ estimateId         : ${estimateId}\n&quot;)
+    logBlock.append(&quot;   ➤ aggrDesc           : ${aggrDesc}\n&quot;)
+    logBlock.append(&quot;   ➤ hashcode           : ${hashcode}\n&quot;)
+    logBlock.append(&quot;   ➤ estimateObjId      : ${estimateObjId}\n&quot;)
+    logBlock.append(&quot;   ➤ projectTitle       : ${projectTitle}\n&quot;)
+    logBlock.append(&quot;   ➤ projectCost        : ${projectCost}\n&quot;)
+    logBlock.append(&quot;   ➤ scenarioId         : ${scenarioId}\n&quot;)
+} else {
+    logBlock.append(&quot;⚠️ No projectDetail found in response.\n&quot;)
+}
+
+// === Extract all child projects ===
+def children = json?.data?.childProjectDetails
+def childCount = 0
+
+if (children &amp;&amp; children instanceof List) {
+    children.eachWithIndex { child, i -&gt;
+        def prefix = &quot;child_${i + 1}&quot; // Ex: child_1, child_2...
+
+        def estNsetId = child.estimateNsetId ?: &quot;null&quot;
+        def estId     = child.estimateId ?: &quot;null&quot;
+        def parentId  = child.parentId ?: &quot;null&quot;
+        def title     = child.projectTitle ?: &quot;null&quot;
+
+        vars.put(&quot;${prefix}_estimateNsetId&quot;, estNsetId.toString())
+        vars.put(&quot;${prefix}_estimateId&quot;, estId.toString())
+        vars.put(&quot;${prefix}_parentId&quot;, parentId.toString())
+        vars.put(&quot;${prefix}_projectTitle&quot;, title.toString())
+
+        childCount++
+    }
+    vars.put(&quot;child_count&quot;, childCount.toString())
+    logBlock.append(&quot;✅ Extracted ${childCount} child project(s)\n&quot;)
+} else {
+    logBlock.append(&quot;⚠️ No child projects found in response.\n&quot;)
+}
+
+// === Read index from user-defined variable and extract that child ===
+def childIndex = vars.get(&quot;childIndex&quot;)?.toInteger()
+if (childIndex &amp;&amp; childIndex &gt; 0 &amp;&amp; childIndex &lt;= childCount) {
+    def estNsetId = vars.get(&quot;child_${childIndex}_estimateNsetId&quot;)
+    def estId     = vars.get(&quot;child_${childIndex}_estimateId&quot;)
+    def parentId  = vars.get(&quot;child_${childIndex}_parentId&quot;)
+    def title     = vars.get(&quot;child_${childIndex}_projectTitle&quot;)
+
+    vars.put(&quot;selected_estimateNsetId&quot;, estNsetId ?: &quot;&quot;)
+    vars.put(&quot;selected_estimateId&quot;, estId ?: &quot;&quot;)
+    vars.put(&quot;selected_parentId&quot;, parentId ?: &quot;&quot;)
+    vars.put(&quot;selected_projectTitle&quot;, title ?: &quot;&quot;)
+
+    logBlock.append(&quot;📦 Selected Child [Index: ${childIndex}]:\n&quot;)
+    logBlock.append(&quot;   ➤ selected_estimateNsetId : ${estNsetId}\n&quot;)
+    logBlock.append(&quot;   ➤ selected_estimateId     : ${estId}\n&quot;)
+    logBlock.append(&quot;   ➤ selected_parentId       : ${parentId}\n&quot;)
+    logBlock.append(&quot;   ➤ selected_projectTitle   : ${title}\n&quot;)
+} else {
+    logBlock.append(&quot;❌ Invalid or missing childIndex: ${childIndex} (Max available: ${childCount})\n&quot;)
+}
+
+logBlock.append(&quot;======================================================================\n&quot;)
+
+// Output to GUI and console
+log.info(logBlock.toString())
+System.out.println(logBlock.toString())
+
+</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Estimate View" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/estimate/estimate-view</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;projectId&quot;: ${__V(child_${childIndex}_estimateNsetId)},&#xd;
+    &quot;offset&quot;: 1,&#xd;
+    &quot;recordsPerPage&quot;: 250,&#xd;
+    &quot;direction&quot;: &quot;forward&quot;,&#xd;
+    &quot;aggregateLevel&quot;: &quot;section&quot;,&#xd;
+    &quot;expandedList&quot;: []&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Estimate Data List" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/estimate/get-estimatedata-list</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="projectId" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">${__V(child_${childIndex}_estimateNsetId)}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">projectId</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Create Section"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Section: Section number already exists">
+              <stringProp name="HTTPSampler.path">/api/v2/estimate/create</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;recordType&quot;: 1,&#xd;
+    &quot;parentId&quot;: 163668,&#xd;
+    &quot;aggrDesc&quot;: &quot;qq&quot;,&#xd;
+    &quot;CarbonData&quot;: {},&#xd;
+    &quot;ProjectSectionId&quot;: 1,&#xd;
+    &quot;estimateId&quot;: 6270,&#xd;
+    &quot;projectDetail&quot;: {},&#xd;
+    &quot;projectSection&quot;: {&#xd;
+        &quot;projectSectionNumber&quot;: &quot;qq&quot;,&#xd;
+        &quot;projectSectionDesc&quot;: &quot;qq&quot;,&#xd;
+        &quot;projectSectionProdRate&quot;: 4,&#xd;
+        &quot;unitId&quot;: 22&#xd;
+    },&#xd;
+    &quot;hasValidationError&quot;: false&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract Error/Validation Messages">
+                <stringProp name="JSONPostProcessor.referenceNames">respMessage;respErrMsg;respErrClass</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$.message;$.errors.Message;$.errors.ClassName</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers">0;0;0</stringProp>
+                <stringProp name="Sample.scope">all</stringProp>
+                <stringProp name="Scope.variable"> </stringProp>
+                <stringProp name="JSONPostProcessor.defaultValues">NOT_FOUND;NOT_FOUND;NOT_FOUND</stringProp>
+              </JSONPostProcessor>
+              <hashTree/>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">// Extracted vars
+def message   = vars.get(&quot;respMessage&quot;) ?: &quot;NOT_FOUND&quot;
+def errMsg    = vars.get(&quot;respErrMsg&quot;) ?: &quot;NOT_FOUND&quot;
+def errClass  = vars.get(&quot;respErrClass&quot;) ?: &quot;NOT_FOUND&quot;
+def respCode  = prev.getResponseCode() ?: &quot;NO_CODE&quot;
+
+// Log to JMeter GUI
+log.info(&quot;===================================================&quot;)
+log.info(&quot;📘 API Error Extracted - Project Section&quot;)
+log.info(&quot;HTTP Status Code   : &quot; + respCode)
+log.info(&quot;Message            : &quot; + message)
+log.info(&quot;Error Class        : &quot; + errClass)
+log.info(&quot;Error Detail       : &quot; + errMsg)
+log.info(&quot;===================================================&quot;)
+
+// Print to Console (non-GUI)
+println(&quot;===================================================&quot;)
+println(&quot;📘 API Error Extracted - Project Section&quot;)
+println(&quot;HTTP Status Code   : &quot; + respCode)
+println(&quot;Message            : &quot; + message)
+println(&quot;Error Class        : &quot; + errClass)
+println(&quot;Error Detail       : &quot; + errMsg)
+println(&quot;===================================================&quot;)
+</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Section: unitId field is required">
+              <stringProp name="HTTPSampler.path">/api/v2/estimate/create</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;recordType&quot;: 1,&#xd;
+    &quot;parentId&quot;: 163668,&#xd;
+    &quot;aggrDesc&quot;: &quot;qq&quot;,&#xd;
+    &quot;CarbonData&quot;: {},&#xd;
+    &quot;ProjectSectionId&quot;: 1,&#xd;
+    &quot;estimateId&quot;: 6270,&#xd;
+    &quot;projectDetail&quot;: {},&#xd;
+    &quot;projectSection&quot;: {&#xd;
+        &quot;projectSectionNumber&quot;: &quot;qq&quot;,&#xd;
+        &quot;projectSectionDesc&quot;: &quot;qq&quot;,&#xd;
+        &quot;projectSectionProdRate&quot;: 4,&#xd;
+        &quot;unitId&quot;: &#xd;
+    },&#xd;
+    &quot;hasValidationError&quot;: false&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract Error/Validation Messages">
+                <stringProp name="JSONPostProcessor.referenceNames">respTitle;respStatus;respErrProj;respErrDetail;respErrUnit</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$.title;$.status;$.errors.projectSection[0];$.errors.projectDetailDTO[0];$.errors[&apos;projectSection.unitId&apos;][0]</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers">0;0;0;0;0</stringProp>
+                <stringProp name="Sample.scope">all</stringProp>
+                <stringProp name="Scope.variable"> </stringProp>
+                <stringProp name="JSONPostProcessor.defaultValues">NOT_FOUND;NOT_FOUND;NOT_FOUND;NOT_FOUND;NOT_FOUND</stringProp>
+              </JSONPostProcessor>
+              <hashTree/>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">// Extracted variables
+def title       = vars.get(&quot;respTitle&quot;) ?: &quot;NOT_FOUND&quot;
+def statusCode  = vars.get(&quot;respStatus&quot;) ?: &quot;NOT_FOUND&quot;
+def errProj     = vars.get(&quot;respErrProj&quot;) ?: &quot;NOT_FOUND&quot;
+def errDetail   = vars.get(&quot;respErrDetail&quot;) ?: &quot;NOT_FOUND&quot;
+def errUnit     = vars.get(&quot;respErrUnit&quot;) ?: &quot;NOT_FOUND&quot;
+def respCode    = prev.getResponseCode() ?: &quot;NO_CODE&quot;
+
+// Log to JMeter GUI
+log.info(&quot;===================================================&quot;)
+log.info(&quot;📘 API Validation Error Extracted&quot;)
+log.info(&quot;HTTP Status Code   : &quot; + respCode)
+log.info(&quot;Title              : &quot; + title)
+log.info(&quot;Status Field       : &quot; + statusCode)
+log.info(&quot;ProjectSection Err : &quot; + errProj)
+log.info(&quot;DetailDTO Err      : &quot; + errDetail)
+log.info(&quot;UnitId Err         : &quot; + errUnit)
+log.info(&quot;===================================================&quot;)
+
+// Print to Console (non-GUI mode)
+println(&quot;===================================================&quot;)
+println(&quot;📘 API Validation Error Extracted&quot;)
+println(&quot;HTTP Status Code   : &quot; + respCode)
+println(&quot;Title              : &quot; + title)
+println(&quot;Status Field       : &quot; + statusCode)
+println(&quot;ProjectSection Err : &quot; + errProj)
+println(&quot;DetailDTO Err      : &quot; + errDetail)
+println(&quot;UnitId Err         : &quot; + errUnit)
+println(&quot;===================================================&quot;)
+</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Section: parentId field is required">
+              <stringProp name="HTTPSampler.path">/api/v2/estimate/create</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;recordType&quot;: 1,&#xd;
+    &quot;parentId&quot;: ,&#xd;
+    &quot;aggrDesc&quot;: &quot;qq&quot;,&#xd;
+    &quot;CarbonData&quot;: {},&#xd;
+    &quot;ProjectSectionId&quot;: 1,&#xd;
+    &quot;estimateId&quot;: 6270,&#xd;
+    &quot;projectDetail&quot;: {},&#xd;
+    &quot;projectSection&quot;: {&#xd;
+        &quot;projectSectionNumber&quot;: &quot;qq&quot;,&#xd;
+        &quot;projectSectionDesc&quot;: &quot;qq&quot;,&#xd;
+        &quot;projectSectionProdRate&quot;: 4,&#xd;
+        &quot;unitId&quot;: 22&#xd;
+    },&#xd;
+    &quot;hasValidationError&quot;: false&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract Error/Validation Messages">
+                <stringProp name="JSONPostProcessor.referenceNames">respTitle;respStatus;respErrParent;respErrDetail</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$.title;$.status;$.errors.parentId[0];$.errors.projectDetailDTO[0]</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers">0;0;0;0</stringProp>
+                <stringProp name="Sample.scope">all</stringProp>
+                <stringProp name="Scope.variable"> </stringProp>
+                <stringProp name="JSONPostProcessor.defaultValues">NOT_FOUND;NOT_FOUND;NOT_FOUND;NOT_FOUND</stringProp>
+              </JSONPostProcessor>
+              <hashTree/>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">// Extracted variables
+def title       = vars.get(&quot;respTitle&quot;) ?: &quot;NOT_FOUND&quot;
+def statusCode  = vars.get(&quot;respStatus&quot;) ?: &quot;NOT_FOUND&quot;
+def errParent   = vars.get(&quot;respErrParent&quot;) ?: &quot;NOT_FOUND&quot;
+def errDetail   = vars.get(&quot;respErrDetail&quot;) ?: &quot;NOT_FOUND&quot;
+def respCode    = prev.getResponseCode() ?: &quot;NO_CODE&quot;
+
+// Log to JMeter GUI
+log.info(&quot;===================================================&quot;)
+log.info(&quot;📘 API Validation Error Extracted&quot;)
+log.info(&quot;HTTP Status Code   : &quot; + respCode)
+log.info(&quot;Title              : &quot; + title)
+log.info(&quot;Status Field       : &quot; + statusCode)
+log.info(&quot;ParentId Err       : &quot; + errParent)
+log.info(&quot;DetailDTO Err      : &quot; + errDetail)
+log.info(&quot;===================================================&quot;)
+
+// Print to Console (non-GUI mode)
+println(&quot;===================================================&quot;)
+println(&quot;📘 API Validation Error Extracted&quot;)
+println(&quot;HTTP Status Code   : &quot; + respCode)
+println(&quot;Title              : &quot; + title)
+println(&quot;Status Field       : &quot; + statusCode)
+println(&quot;ParentId Err       : &quot; + errParent)
+println(&quot;DetailDTO Err      : &quot; + errDetail)
+println(&quot;===================================================&quot;)
+</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Section: estimateId field is required">
+              <stringProp name="HTTPSampler.path">/api/v2/estimate/create</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;recordType&quot;: 1,&#xd;
+    &quot;parentId&quot;: 163668,&#xd;
+    &quot;aggrDesc&quot;: &quot;qq&quot;,&#xd;
+    &quot;CarbonData&quot;: {},&#xd;
+    &quot;ProjectSectionId&quot;: 1,&#xd;
+    &quot;estimateId&quot;: ,&#xd;
+    &quot;projectDetail&quot;: {},&#xd;
+    &quot;projectSection&quot;: {&#xd;
+        &quot;projectSectionNumber&quot;: &quot;qq&quot;,&#xd;
+        &quot;projectSectionDesc&quot;: &quot;qq&quot;,&#xd;
+        &quot;projectSectionProdRate&quot;: 4,&#xd;
+        &quot;unitId&quot;: 22&#xd;
+    },&#xd;
+    &quot;hasValidationError&quot;: false&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract Error/Validation Messages">
+                <stringProp name="JSONPostProcessor.referenceNames">respTitle;respStatus;respErrEstimateId;respErrDetailDTO</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$.title;$.status;$.errors.estimateId[0];$.errors.projectDetailDTO[0]</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers">0;0;0;0</stringProp>
+                <stringProp name="Sample.scope">all</stringProp>
+                <stringProp name="Scope.variable"> </stringProp>
+                <stringProp name="JSONPostProcessor.defaultValues">NOT_FOUND;NOT_FOUND;NOT_FOUND;NOT_FOUND</stringProp>
+              </JSONPostProcessor>
+              <hashTree/>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">// Extracted variables
+def title       = vars.get(&quot;respTitle&quot;) ?: &quot;NOT_FOUND&quot;
+def statusCode  = vars.get(&quot;respStatus&quot;) ?: &quot;NOT_FOUND&quot;
+def errEstimate = vars.get(&quot;respErrEstimateId&quot;) ?: &quot;NOT_FOUND&quot;
+def errDetail   = vars.get(&quot;respErrDetailDTO&quot;) ?: &quot;NOT_FOUND&quot;
+def respCode    = prev.getResponseCode() ?: &quot;NO_CODE&quot;
+
+// Log to JMeter GUI (View Results Tree / jmeter.log)
+log.info(&quot;===================================================&quot;)
+log.info(&quot;📘 API Validation Error Extracted&quot;)
+log.info(&quot;HTTP Status Code   : &quot; + respCode)
+log.info(&quot;Title              : &quot; + title)
+log.info(&quot;Status Field       : &quot; + statusCode)
+log.info(&quot;EstimateId Err     : &quot; + errEstimate)
+log.info(&quot;DetailDTO Err      : &quot; + errDetail)
+log.info(&quot;===================================================&quot;)
+
+// Print to Console (Non-GUI mode)
+println(&quot;===================================================&quot;)
+println(&quot;📘 API Validation Error Extracted&quot;)
+println(&quot;HTTP Status Code   : &quot; + respCode)
+println(&quot;Title              : &quot; + title)
+println(&quot;Status Field       : &quot; + statusCode)
+println(&quot;EstimateId Err     : &quot; + errEstimate)
+println(&quot;DetailDTO Err      : &quot; + errDetail)
+println(&quot;===================================================&quot;)
+</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Section: ProjectSection is mandatory">
+              <stringProp name="HTTPSampler.path">/api/v2/estimate/create</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;recordType&quot;: 1,&#xd;
+    &quot;parentId&quot;: 163668,&#xd;
+    &quot;aggrDesc&quot;: &quot;qhq&quot;,&#xd;
+    &quot;CarbonData&quot;: {},&#xd;
+    &quot;ProjectSectionId&quot;: 1,&#xd;
+    &quot;estimateId&quot;: 6270,&#xd;
+    &quot;projectDetail&quot;: {},&#xd;
+   &#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract Error/Validation Messages">
+                <stringProp name="JSONPostProcessor.referenceNames">respErrors;respTitle;respStatus;respTraceId</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$.errors.ProjectSection[0];$.title;$.status;$.traceId</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers">0;0;0;0</stringProp>
+                <stringProp name="Sample.scope">all</stringProp>
+                <stringProp name="Scope.variable"> </stringProp>
+                <stringProp name="JSONPostProcessor.defaultValues">NOT_FOUND;NOT_FOUND;NOT_FOUND;NOT_FOUND</stringProp>
+              </JSONPostProcessor>
+              <hashTree/>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">// Extracted variables
+def errorMsg   = vars.get(&quot;respErrors&quot;) ?: &quot;NOT_FOUND&quot;
+def title      = vars.get(&quot;respTitle&quot;) ?: &quot;NOT_FOUND&quot;
+def statusCode = vars.get(&quot;respStatus&quot;) ?: &quot;NOT_FOUND&quot;
+def traceId    = vars.get(&quot;respTraceId&quot;) ?: &quot;NOT_FOUND&quot;
+
+// Log to JMeter GUI (jmeter.log / View Results Tree)
+log.info(&quot;===================================================&quot;)
+log.info(&quot;📘 Extracted API Error Details&quot;)
+log.info(&quot;Error Message : &quot; + errorMsg)
+log.info(&quot;Title         : &quot; + title)
+log.info(&quot;Status Code   : &quot; + statusCode)
+log.info(&quot;TraceId       : &quot; + traceId)
+log.info(&quot;===================================================&quot;)
+
+// Print to Console (non-GUI mode)
+println(&quot;===================================================&quot;)
+println(&quot;📘 Extracted API Error Details&quot;)
+println(&quot;Error Message : &quot; + errorMsg)
+println(&quot;Title         : &quot; + title)
+println(&quot;Status Code   : &quot; + statusCode)
+println(&quot;TraceId       : &quot; + traceId)
+println(&quot;===================================================&quot;)
+</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Open Section and Add Item Library files"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Estimate View">
+              <stringProp name="HTTPSampler.path">/api/v2/estimate/estimate-view</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;projectId&quot;: ${__V(child_${childIndex}_estimateId)},&#xd;
+    &quot;offset&quot;: ${projectLeftValue},&#xd;
+    &quot;recordsPerPage&quot;: 1,&#xd;
+    &quot;direction&quot;: &quot;forward&quot;,&#xd;
+    &quot;aggregateLevel&quot;: &quot;section&quot;,&#xd;
+    &quot;expandedList&quot;: [ ${carbonEstimateNsetId}]&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">
+import groovy.json.JsonSlurper
+
+// === Parse response ===
+def response = prev.getResponseDataAsString()
+def json = new JsonSlurper().parseText(response)
+
+// === Get first item in the data array ===
+def item = json?.data?.getAt(0)
+
+// Structured Start Logging
+log.info(&quot;========================================================&quot;)
+log.info(&quot;===== START: Extracting JSON Data =====&quot;)
+System.out.println(&quot;========================================================&quot;)
+System.out.println(&quot;===== START: Extracting JSON Data =====&quot;)
+
+if (item) {
+    log.info(&quot;----- Top-level Fields -----&quot;)
+    System.out.println(&quot;----- Top-level Fields -----&quot;)
+
+    def keys = [
+        &quot;id&quot;, &quot;tenantId&quot;, &quot;leftValue&quot;, &quot;rightValue&quot;, &quot;estimateId&quot;, &quot;projectSectionAggrId&quot;,
+        &quot;parentId&quot;, &quot;levelNumber&quot;, &quot;aggrType&quot;, &quot;aggrDesc&quot;, &quot;aggrOrder&quot;,
+        &quot;hashcode&quot;, &quot;recordType&quot;, &quot;isDeleted&quot;
+    ]
+
+    keys.each { key -&gt;
+        def value = item[key]
+        if (value != null) {
+            vars.put(&quot;item_${key}&quot;, value.toString())
+            log.info(&quot;item_${key}: ${value}&quot;)
+            System.out.println(&quot;item_${key}: ${value}&quot;)
+        }
+    }
+
+    // === projectSection nested object ===
+    def section = item?.projectSection
+    if (section) {
+        log.info(&quot;----- Nested: projectSection -----&quot;)
+        System.out.println(&quot;----- Nested: projectSection -----&quot;)
+
+        section.each { k, v -&gt;
+            if (v != null) {
+                vars.put(&quot;projectSection_${k}&quot;, v.toString())
+                log.info(&quot;projectSection_${k}: ${v}&quot;)
+                System.out.println(&quot;projectSection_${k}: ${v}&quot;)
+            }
+        }
+    }
+
+    // === carbonData nested object ===
+    def carbon = item?.carbonData
+    if (carbon) {
+        log.info(&quot;----- Nested: carbonData -----&quot;)
+        System.out.println(&quot;----- Nested: carbonData -----&quot;)
+
+        carbon.each { k, v -&gt;
+            if (v != null) {
+                vars.put(&quot;carbonData_${k}&quot;, v.toString())
+                log.info(&quot;carbonData_${k}: ${v}&quot;)
+                System.out.println(&quot;carbonData_${k}: ${v}&quot;)
+            }
+        }
+    }
+
+} else {
+    log.warn(&quot;❌ No valid item found in JSON data.&quot;)
+    System.out.println(&quot;❌ No valid item found in JSON data.&quot;)
+}
+
+// Structured End Logging
+log.info(&quot;===== END: JSON Extraction Complete =====&quot;)
+log.info(&quot;========================================================&quot;)
+System.out.println(&quot;===== END: JSON Extraction Complete =====&quot;)
+System.out.println(&quot;========================================================&quot;)
+
+</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Open Section view">
+              <stringProp name="HTTPSampler.path">/api/v2/estimate/estimate-view</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;projectId&quot;:${__V(child_${childIndex}_estimateId)},&quot;offset&quot;:1,&quot;direction&quot;:&quot;forward&quot;,&quot;aggregateLevel&quot;:&quot;section&quot;,&quot;expandedList&quot;:[${carbonEstimateNsetId}]}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get all Item Library">
+              <stringProp name="HTTPSampler.path">/api/v2/item-library-v2/cost-and-carbon/get?LifeCycleStageId=25</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">
+import groovy.json.JsonSlurper
+import java.text.SimpleDateFormat
+
+// Parse the response
+def response = prev.getResponseDataAsString()
+def json = new JsonSlurper().parseText(response)
+
+// START Logging
+log.info(&quot;========================================================&quot;)
+log.info(&quot;===== BEGIN Extracting JSON Data =====&quot;)
+System.out.println(&quot;========================================================&quot;)
+System.out.println(&quot;===== BEGIN Extracting JSON Data =====&quot;)
+
+if (json?.data) {
+    json.data.eachWithIndex { item, i -&gt;
+        def index = i + 1
+
+        def itemLibraryId = item.itemLibraryId ?: &quot;null&quot;
+        def code = item.code ?: &quot;null&quot;
+        def name = item.name ?: &quot;null&quot;
+        def description = item.description ?: &quot;null&quot;
+        def lifecycleStageId = item.lifecycleStageId ?: &quot;null&quot;
+
+        // Store to JMeter variables
+        vars.put(&quot;itemLibraryId_${index}&quot;, itemLibraryId.toString())
+        vars.put(&quot;code_${index}&quot;, code.toString())
+        vars.put(&quot;name_${index}&quot;, name.toString())
+        vars.put(&quot;description_${index}&quot;, description.toString())
+        vars.put(&quot;lifecycleStageId_${index}&quot;, lifecycleStageId.toString())
+
+        // Log each item
+        def logMessage = &quot;[Item ${index}] itemLibraryId=${itemLibraryId}, code=${code}, name=${name}, description=${description}, lifecycleStageId=${lifecycleStageId}&quot;
+        log.info(logMessage)
+        System.out.println(logMessage)
+    }
+
+    def totalItems = json.data.size()
+    vars.put(&quot;item_count&quot;, totalItems.toString()) // 👈 Needed for loop count
+
+    log.info(&quot;[Summary] Total items extracted: ${totalItems}&quot;)
+    System.out.println(&quot;[Summary] Total items extracted: ${totalItems}&quot;)
+
+} else {
+    log.warn(&quot;[Warning] No data array found in JSON response.&quot;)
+    System.out.println(&quot;[Warning] No data array found in JSON response.&quot;)
+}
+
+// END Logging
+log.info(&quot;===== END Extracting JSON Data =====&quot;)
+log.info(&quot;========================================================&quot;)
+System.out.println(&quot;===== END Extracting JSON Data =====&quot;)
+System.out.println(&quot;========================================================&quot;)
+
+</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Controll Library File"/>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Headers - BES UAT API ">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Normal Items code &amp; Library">
+                <stringProp name="HTTPSampler.path">/api/v2/item-library-v2/item/get?ItemLibraryId=44&amp;PageNumber=1&amp;PageSize=50&amp;ShowSubItemOnly=false&amp;ShowTextItemOnly=false&amp;_t=1753949649527</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+              <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Item Library Controller">
+                <stringProp name="LoopController.loops">${ITEM_LIBRARY_COUNT}</stringProp>
+              </LoopController>
+              <hashTree>
+                <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config">
+                  <stringProp name="delimiter">,</stringProp>
+                  <stringProp name="fileEncoding">UTF-8</stringProp>
+                  <stringProp name="filename">C:\Users\radhakrishnanv\Working Project\Benchmark_Estimating\Integration Environment\CSV data files\Negative_Integration_Drag_Drop_Items_TestDatas.csv</stringProp>
+                  <boolProp name="ignoreFirstLine">false</boolProp>
+                  <boolProp name="quotedData">false</boolProp>
+                  <boolProp name="recycle">true</boolProp>
+                  <stringProp name="shareMode">shareMode.group</stringProp>
+                  <boolProp name="stopThread">false</boolProp>
+                  <stringProp name="variableNames"></stringProp>
+                </CSVDataSet>
+                <hashTree/>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor">
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="script">
+// Initialize or get drag-and-drop iteration count
+def dragDropCount = vars.get(&quot;drag_drop_counter&quot;) as Integer ?: 0
+dragDropCount++  // Increment count for this drag-and-drop action
+
+// Save updated count back to JMeter variable
+vars.put(&quot;drag_drop_counter&quot;, dragDropCount.toString())
+
+// Define log message content
+def logLines = [
+    &quot;================================================================&quot;,
+    &quot;🎯 [DRAG &amp; DROP - Iteration: ${dragDropCount}]&quot;,
+    &quot;----------------------------------------------------------------&quot;,
+    &quot;aggrCode    : ${vars.get(&apos;aggrCode&apos;)}&quot;,
+    &quot;itemNsetId  : ${vars.get(&apos;itemNsetId&apos;)}&quot;,
+    &quot;qty         : ${vars.get(&apos;qty&apos;)}&quot;,
+    &quot;Description : ${vars.get(&apos;Description&apos;)}&quot;,
+    &quot;================================================================&quot;
+]
+
+// GUI Logging
+logLines.each { line -&gt; log.info(line) }
+
+// Console Logging (Non-GUI mode)
+logLines.each { line -&gt; System.out.println(line) }
+</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="From Lib: The request field &quot;itemNsetId&quot;  is required">
+                  <stringProp name="HTTPSampler.path">/api/v2/estimate/create</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <stringProp name="HTTPSampler.method">POST</stringProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">[&#xd;
+    {&#xd;
+        &quot;itemNsetId&quot;: ,&#xd;
+        &quot;estimateNsetId&quot;: 367617,&#xd;
+        &quot;qty&quot;: 1&#xd;
+    }&#xd;
+]</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                </HTTPSamplerProxy>
+                <hashTree>
+                  <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract Error/Validation Messages">
+                    <stringProp name="JSONPostProcessor.referenceNames">respErrors;respTitle;respStatus;respTraceId</stringProp>
+                    <stringProp name="JSONPostProcessor.jsonPathExprs">$.errors.*.*;$.title;$.status;$.traceId</stringProp>
+                    <stringProp name="JSONPostProcessor.match_numbers">0;0;0;0</stringProp>
+                    <stringProp name="Sample.scope">all</stringProp>
+                    <stringProp name="Scope.variable"> </stringProp>
+                    <stringProp name="JSONPostProcessor.defaultValues">NOT_FOUND;NOT_FOUND;NOT_FOUND;NOT_FOUND</stringProp>
+                  </JSONPostProcessor>
+                  <hashTree/>
+                  <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor">
+                    <stringProp name="scriptLanguage">groovy</stringProp>
+                    <stringProp name="parameters"></stringProp>
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="cacheKey">true</stringProp>
+                    <stringProp name="script">// Title, status, traceId
+def title      = vars.get(&quot;respTitle&quot;) ?: &quot;NOT_FOUND&quot;
+def statusCode = vars.get(&quot;respStatus&quot;) ?: &quot;NOT_FOUND&quot;
+def traceId    = vars.get(&quot;respTraceId&quot;) ?: &quot;NOT_FOUND&quot;
+
+// Collect all errors
+def errorList = []
+def matchCount = vars.get(&quot;respErrors_matchNr&quot;) as int
+for (int i = 1; i &lt;= matchCount; i++) {
+    errorList &lt;&lt; vars.get(&quot;respErrors_&quot; + i)
+}
+
+// Log to JMeter GUI
+log.info(&quot;===================================================&quot;)
+log.info(&quot;📘 Extracted API Error Details&quot;)
+errorList.eachWithIndex { err, idx -&gt;
+    log.info(&quot;Error[&quot; + idx + &quot;]: &quot; + err)
+}
+log.info(&quot;Title       : &quot; + title)
+log.info(&quot;Status Code : &quot; + statusCode)
+log.info(&quot;TraceId     : &quot; + traceId)
+log.info(&quot;===================================================&quot;)
+
+// Print to Console (non-GUI)
+println(&quot;===================================================&quot;)
+println(&quot;📘 Extracted API Error Details&quot;)
+errorList.eachWithIndex { err, idx -&gt;
+    println(&quot;Error[&quot; + idx + &quot;]: &quot; + err)
+}
+println(&quot;Title       : &quot; + title)
+println(&quot;Status Code : &quot; + statusCode)
+println(&quot;TraceId     : &quot; + traceId)
+println(&quot;===================================================&quot;)
+</stringProp>
+                  </JSR223PostProcessor>
+                  <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="From Lib: The request field &quot;estimateNsetId&quot;  is required">
+                  <stringProp name="HTTPSampler.path">/api/v2/estimate/create</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <stringProp name="HTTPSampler.method">POST</stringProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">[&#xd;
+    {&#xd;
+        &quot;itemNsetId&quot;: 683731,&#xd;
+        &quot;estimateNsetId&quot;: ,&#xd;
+        &quot;qty&quot;: 1&#xd;
+    }&#xd;
+]</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                </HTTPSamplerProxy>
+                <hashTree>
+                  <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract Error/Validation Messages">
+                    <stringProp name="JSONPostProcessor.referenceNames">respErrorsKeys;respErrors;respTitle;respStatus;respTraceId</stringProp>
+                    <stringProp name="JSONPostProcessor.jsonPathExprs">$.errors.*~;$.errors.*.*;$.title;$.status;$.traceId</stringProp>
+                    <stringProp name="JSONPostProcessor.match_numbers">0;0;0;0;0</stringProp>
+                    <stringProp name="Sample.scope">all</stringProp>
+                    <stringProp name="Scope.variable"> </stringProp>
+                    <stringProp name="JSONPostProcessor.defaultValues">NOT_FOUND;NOT_FOUND;NOT_FOUND;NOT_FOUND;NOT_FOUND</stringProp>
+                  </JSONPostProcessor>
+                  <hashTree/>
+                  <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor">
+                    <stringProp name="scriptLanguage">groovy</stringProp>
+                    <stringProp name="parameters"></stringProp>
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="cacheKey">true</stringProp>
+                    <stringProp name="script">// Extracted title, status, traceId
+def title      = vars.get(&quot;respTitle&quot;) ?: &quot;NOT_FOUND&quot;
+def statusCode = vars.get(&quot;respStatus&quot;) ?: &quot;NOT_FOUND&quot;
+def traceId    = vars.get(&quot;respTraceId&quot;) ?: &quot;NOT_FOUND&quot;
+
+// Build error map (key -&gt; message)
+def errorMap = [:]
+def keyCount = (vars.get(&quot;respErrorsKeys_matchNr&quot;) ?: &quot;0&quot;) as int
+def valCount = (vars.get(&quot;respErrors_matchNr&quot;) ?: &quot;0&quot;) as int
+
+for (int i = 1; i &lt;= keyCount &amp;&amp; i &lt;= valCount; i++) {
+    def key = vars.get(&quot;respErrorsKeys_&quot; + i)
+    def val = vars.get(&quot;respErrors_&quot; + i)
+    errorMap[key] = val
+}
+
+// Log to JMeter GUI
+log.info(&quot;===================================================&quot;)
+log.info(&quot;📘 Extracted API Error Details&quot;)
+errorMap.each { k,v -&gt; log.info(&quot;${k} -&gt; ${v}&quot;) }
+log.info(&quot;Title       : &quot; + title)
+log.info(&quot;Status Code : &quot; + statusCode)
+log.info(&quot;TraceId     : &quot; + traceId)
+log.info(&quot;===================================================&quot;)
+
+// Print to Console (non-GUI mode)
+println(&quot;===================================================&quot;)
+println(&quot;📘 Extracted API Error Details&quot;)
+errorMap.each { k,v -&gt; println(&quot;${k} -&gt; ${v}&quot;) }
+println(&quot;Title       : &quot; + title)
+println(&quot;Status Code : &quot; + statusCode)
+println(&quot;TraceId     : &quot; + traceId)
+println(&quot;===================================================&quot;)
+</stringProp>
+                  </JSR223PostProcessor>
+                  <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="From Lib: The request field &quot;qty&quot;  is required">
+                  <stringProp name="HTTPSampler.path">/api/v2/estimate/create</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <stringProp name="HTTPSampler.method">POST</stringProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">[&#xd;
+    {&#xd;
+        &quot;itemNsetId&quot;: 683731,&#xd;
+        &quot;estimateNsetId&quot;: 367617,&#xd;
+        &quot;qty&quot;: &#xd;
+    }&#xd;
+]</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                </HTTPSamplerProxy>
+                <hashTree>
+                  <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract Error/Validation Messages">
+                    <stringProp name="JSONPostProcessor.referenceNames">respErrorsKeys;respErrors;respTitle;respStatus;respTraceId</stringProp>
+                    <stringProp name="JSONPostProcessor.jsonPathExprs">$.errors.*~;$.errors.*.*;$.title;$.status;$.traceId</stringProp>
+                    <stringProp name="JSONPostProcessor.match_numbers">0;0;0;0;0</stringProp>
+                    <stringProp name="Sample.scope">all</stringProp>
+                    <stringProp name="Scope.variable"> </stringProp>
+                    <stringProp name="JSONPostProcessor.defaultValues">NOT_FOUND;NOT_FOUND;NOT_FOUND;NOT_FOUND;NOT_FOUND</stringProp>
+                  </JSONPostProcessor>
+                  <hashTree/>
+                  <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor">
+                    <stringProp name="scriptLanguage">groovy</stringProp>
+                    <stringProp name="parameters"></stringProp>
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="cacheKey">true</stringProp>
+                    <stringProp name="script">// Extract values
+def title      = vars.get(&quot;respTitle&quot;) ?: &quot;NOT_FOUND&quot;
+def statusCode = vars.get(&quot;respStatus&quot;) ?: &quot;NOT_FOUND&quot;
+def traceId    = vars.get(&quot;respTraceId&quot;) ?: &quot;NOT_FOUND&quot;
+
+// Build error map (key -&gt; messages list)
+def errorMap = [:]
+def keyCount = (vars.get(&quot;respErrorsKeys_matchNr&quot;) ?: &quot;0&quot;) as int
+def valCount = (vars.get(&quot;respErrors_matchNr&quot;) ?: &quot;0&quot;) as int
+
+for (int i = 1; i &lt;= keyCount; i++) {
+    def key = vars.get(&quot;respErrorsKeys_&quot; + i)
+    def messages = []
+    for (int j = 1; j &lt;= valCount; j++) {
+        def val = vars.get(&quot;respErrors_&quot; + j)
+        // group messages belonging to current key
+        if (val != null &amp;&amp; !val.trim().isEmpty()) {
+            messages &lt;&lt; val
+        }
+    }
+    if (messages) errorMap[key] = messages
+}
+
+// Log in GUI
+log.info(&quot;===================================================&quot;)
+log.info(&quot;📘 Extracted API Error Details&quot;)
+errorMap.each { k,v -&gt; log.info(&quot;${k} -&gt; ${v.join(&apos; | &apos;)}&quot;) }
+log.info(&quot;Title       : &quot; + title)
+log.info(&quot;Status Code : &quot; + statusCode)
+log.info(&quot;TraceId     : &quot; + traceId)
+log.info(&quot;===================================================&quot;)
+
+// Log in Console (non-GUI mode)
+println(&quot;===================================================&quot;)
+println(&quot;📘 Extracted API Error Details&quot;)
+errorMap.each { k,v -&gt; println(&quot;${k} -&gt; ${v.join(&apos; | &apos;)}&quot;) }
+println(&quot;Title       : &quot; + title)
+println(&quot;Status Code : &quot; + statusCode)
+println(&quot;TraceId     : &quot; + traceId)
+println(&quot;===================================================&quot;)
+</stringProp>
+                  </JSR223PostProcessor>
+                  <hashTree/>
+                </hashTree>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Delete Section" enabled="false"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Delete Section" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/estimate/delete/${projectDetailId}</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">DELETE</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
