@@ -32,7 +32,7 @@ jobs:
       # Step 4: Run JMeter Test
       - name: Run JMeter script
         run: |
-          jmeter -n -t "JMX files/Integration_Approve_Estimation_Quotation API.jmx" -l results.jtl -e -o results/
+          jmeter -n -t "JMX files/100Items_Drag_and_Drop_Item_Library_Files_API.jmx" -l results.jtl -e -o results/
 
       # Step 5: Upload report as artifact
       - name: Upload JMeter Report
