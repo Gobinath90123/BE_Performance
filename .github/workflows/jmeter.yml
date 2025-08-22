@@ -1,42 +1,53 @@
-name: Run JMeter Tests
+name: Run All JMeter Tests
 
 on:
-  workflow_dispatch:   # allows manual run
+  workflow_dispatch:
   push:
     branches:
       - main
 
 jobs:
   jmeter-test:
-    runs-on: windows-latest   # changed from ubuntu to windows
+    runs-on: windows-latest
 
     steps:
-      # Step 1: Checkout repository
+      # Step 1: Checkout repo
       - name: Checkout code
-        uses: actions/checkout@v4   # latest checkout action
+        uses: actions/checkout@v4
 
-      # Step 2: Setup Java (JMeter needs it)
+      # Step 2: Set up Java
       - name: Setup Java
-        uses: actions/setup-java@v4   # updated to v4
+        uses: actions/setup-java@v4
         with:
-          java-version: '17'   # better for JMeter 5.6.3
+          java-version: '17'
           distribution: 'temurin'
 
-      # Step 3: Install JMeter on Windows
+      # Step 3: Install JMeter
       - name: Install JMeter
         run: |
           curl -L https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.zip -o jmeter.zip
           tar -xf jmeter.zip
           echo "${{ github.workspace }}\apache-jmeter-5.6.3\bin" >> $env:GITHUB_PATH
 
-      # Step 4: Run JMeter Test
-      - name: Run JMeter script
+      # Step 4: Run all JMX test scripts
+      - name: Run All JMeter Scripts
         run: |
-          jmeter -n -t "JMX files/100Items_Drag_and_Drop_Item_Library_Files_API.jmx" -l results.jtl -e -o results/
+          $timestamp = Get-Date -Format "yyyy-MM-dd_HHmmss"
+          $jmxFiles = Get-ChildItem "JMX files" -Filter *.jmx
+          
+          foreach ($file in $jmxFiles) {
+            $baseName = [System.IO.Path]::GetFileNameWithoutExtension($file.Name)
+            $resultDir = "results/${baseName}_$timestamp"
+            mkdir $resultDir | Out-Null
 
-      # Step 5: Upload report as artifact
-      - name: Upload JMeter Report
-        uses: actions/upload-artifact@v4   # ✅ latest version
+            jmeter -n -t "$($file.FullName)" `
+                   -l "$resultDir/results.jtl" `
+                   -e -o "$resultDir/html"
+          }
+
+      # Step 5: Upload all reports
+      - name: Upload JMeter Reports
+        uses: actions/upload-artifact@v4
         with:
-          name: jmeter-report
+          name: all-jmeter-reports
           path: results/
