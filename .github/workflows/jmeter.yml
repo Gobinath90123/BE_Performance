@@ -15,7 +15,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Step 2: Set up Java
+      # Step 2: Setup Java
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
@@ -31,21 +31,28 @@ jobs:
 
       # Step 4: Run all JMX test scripts
       - name: Run All JMeter Scripts
+        shell: pwsh
         run: |
           $timestamp = Get-Date -Format "yyyy-MM-dd_HHmmss"
           $jmxFiles = Get-ChildItem "JMX files" -Filter *.jmx
-          
+          New-Item -ItemType Directory -Force -Path results | Out-Null
+
           foreach ($file in $jmxFiles) {
             $baseName = [System.IO.Path]::GetFileNameWithoutExtension($file.Name)
             $resultDir = "results/${baseName}_$timestamp"
-            mkdir $resultDir | Out-Null
+            New-Item -ItemType Directory -Force -Path $resultDir | Out-Null
 
-            jmeter -n -t "$($file.FullName)" `
-                   -l "$resultDir/results.jtl" `
-                   -e -o "$resultDir/html"
+            $jtlFile = "$resultDir/${baseName}.jtl"
+            $htmlDir = "$resultDir/${baseName}-html"
+
+            echo "Running test: $baseName"
+            jmeter -n -t "$($file.FullName)" -l "$jtlFile"
+
+            echo "Generating report: $htmlDir"
+            jmeter -g "$jtlFile" -o "$htmlDir"
           }
 
-      # Step 5: Upload all reports
+      # Step 5: Upload all reports as artifact
       - name: Upload JMeter Reports
         uses: actions/upload-artifact@v4
         with:
