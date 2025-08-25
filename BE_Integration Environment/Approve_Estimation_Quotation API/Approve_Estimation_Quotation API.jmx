@@ -1,0 +1,1928 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Approve Estimation Quotation API">
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Approve Estimation Quotation API">
+        <stringProp name="ThreadGroup.num_threads">${THREAD_COUNT}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${RAMP_UP}</stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <stringProp name="LoopController.loops">${LOOP_COUNT}</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+          <stringProp name="HTTPSampler.domain">${BASE_URL}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${PROTOCOL}</stringProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="THREAD_COUNT" elementType="Argument">
+              <stringProp name="Argument.name">THREAD_COUNT</stringProp>
+              <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc"></stringProp>
+            </elementProp>
+            <elementProp name="RAMP_UP" elementType="Argument">
+              <stringProp name="Argument.name">RAMP_UP</stringProp>
+              <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="LOOP_COUNT" elementType="Argument">
+              <stringProp name="Argument.name">LOOP_COUNT</stringProp>
+              <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="PROTOCOL" elementType="Argument">
+              <stringProp name="Argument.name">PROTOCOL</stringProp>
+              <stringProp name="Argument.value">https</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="BASE_URL" elementType="Argument">
+              <stringProp name="Argument.name">BASE_URL</stringProp>
+              <stringProp name="Argument.value">v10-integration.dev.api.test.benchmarkestimating.com</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="API_VERSION" elementType="Argument">
+              <stringProp name="Argument.name">API_VERSION</stringProp>
+              <stringProp name="Argument.value">v2</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="PORTFOLIO_TITLE" elementType="Argument">
+              <stringProp name="Argument.name">PORTFOLIO_TITLE</stringProp>
+              <stringProp name="Argument.value">Karan</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="PROGRAMME_TITLE" elementType="Argument">
+              <stringProp name="Argument.name">PROGRAMME_TITLE</stringProp>
+              <stringProp name="Argument.value">kl</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="PROJECT_TITLE" elementType="Argument">
+              <stringProp name="Argument.name">PROJECT_TITLE</stringProp>
+              <stringProp name="Argument.value">New Test Project</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="ESTIMATE_TITLE" elementType="Argument">
+              <stringProp name="Argument.name">ESTIMATE_TITLE</stringProp>
+              <stringProp name="Argument.value">RETY</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="REGION_DESC" elementType="Argument">
+              <stringProp name="Argument.name">REGION_DESC</stringProp>
+              <stringProp name="Argument.value">North East</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="EstimatorName" elementType="Argument">
+              <stringProp name="Argument.name">EstimatorName</stringProp>
+              <stringProp name="Argument.value">Vijay Mishra</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="OutputType" elementType="Argument">
+              <stringProp name="Argument.name">OutputType</stringProp>
+              <stringProp name="Argument.value">Discrete Operation and Maintenance Estimate</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="LEVEL_OF_ESTIMATE_DESC" elementType="Argument">
+              <stringProp name="Argument.name">LEVEL_OF_ESTIMATE_DESC</stringProp>
+              <stringProp name="Argument.value">RIS Estimate</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="PAGE_NUMBER" elementType="Argument">
+              <stringProp name="Argument.name">PAGE_NUMBER</stringProp>
+              <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="RESOURCE_CODE" elementType="Argument">
+              <stringProp name="Argument.name">RESOURCE_CODE</stringProp>
+              <stringProp name="Argument.value">AGG20</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="AREA_DESC" elementType="Argument">
+              <stringProp name="Argument.name">AREA_DESC</stringProp>
+              <stringProp name="Argument.value">Area 12</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="SCENARIO_DESC" elementType="Argument">
+              <stringProp name="Argument.name">SCENARIO_DESC</stringProp>
+              <stringProp name="Argument.value">Without Scheme</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="numberOfEstimates" elementType="Argument">
+              <stringProp name="Argument.name">numberOfEstimates</stringProp>
+              <stringProp name="Argument.value">3</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Credentials">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="USERNAME" elementType="Argument">
+              <stringProp name="Argument.name">USERNAME</stringProp>
+              <stringProp name="Argument.value">${__P(username,main)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="PASSWORD" elementType="Argument">
+              <stringProp name="Argument.name">PASSWORD</stringProp>
+              <stringProp name="Argument.value">${__P(password,Welcome123)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="01_Authentication" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login_API" enabled="true">
+            <stringProp name="HTTPSampler.path">/api/v2/auth/login</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;name&quot;: &quot;${USERNAME}&quot;,&#xd;
+    &quot;password&quot;: &quot;${PASSWORD}&quot;,&#xd;
+    &quot;userType&quot;: &quot;string&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">
+import groovy.json.JsonSlurper
+
+def username = vars.get(&quot;USERNAME&quot;) ?: &quot;USERNAME_NOT_SET&quot;
+def password = vars.get(&quot;PASSWORD&quot;) ?: &quot;PASSWORD_NOT_SET&quot;
+def authToken = &quot;AUTH_TOKEN_NOT_FOUND&quot;
+
+// Parse only if response is not empty and contains JSON
+def response = prev.getResponseDataAsString()
+
+if (response &amp;&amp; response.trim().startsWith(&quot;{&quot;)) {
+    try {
+        def jsonSlurper = new JsonSlurper()
+        def parsedJson = jsonSlurper.parseText(response)
+
+        // Try to extract authToken from $.data
+        authToken = parsedJson?.data ?: &quot;AUTH_TOKEN_NOT_FOUND&quot;
+        vars.put(&quot;authToken&quot;, authToken.toString())
+
+    } catch (Exception e) {
+        log.error(&quot; JSON parsing failed: ${e.message}&quot;)
+        println(&quot; JSON parsing failed: ${e.message}&quot;)  // print in CLI
+        vars.put(&quot;authToken&quot;, &quot;AUTH_TOKEN_PARSE_ERROR&quot;)
+    }
+} else {
+    log.error(&quot; No valid JSON response received for auth token extraction.&quot;)
+    println(&quot; No valid JSON response received for auth token extraction.&quot;)  // print in CLI
+    vars.put(&quot;authToken&quot;, &quot;AUTH_TOKEN_EMPTY_RESPONSE&quot;)
+}
+
+// Log the values
+def divider = &quot;============================================================&quot;
+def logText = &quot;&quot;&quot;
+$divider
+ JSR223 PostProcessor - Runtime Variable Log
+------------------------------------------------------------
+USERNAME used      : $username
+PASSWORD used      : $password
+AuthToken extracted: $authToken
+$divider
+&quot;&quot;&quot;
+
+log.info(logText)   // visible in GUI logs
+println(logText)    // visible in CLI when running with -n (non-GUI)
+
+// Optional debug output in sampler response
+prev.setSampleLabel(&quot;Log Key Runtime Values&quot;)
+
+def output = &quot;&quot;&quot;
+----------------- Runtime Variable Log -----------------
+
+ USERNAME used      : $username
+ PASSWORD used      : $password
+ AuthToken extracted: $authToken
+
+---------------------------------------------------------
+&quot;&quot;&quot;
+prev.setResponseData(output, &quot;UTF-8&quot;)
+</stringProp>
+            </JSR223PostProcessor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Get All Portfolio" enabled="true"/>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${authToken}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Get Project" enabled="true"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get all Portfolio" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/project-composition/get</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;leftValue&quot;: 1,&#xd;
+    &quot;offset&quot;: 0,&#xd;
+    &quot;recordsPerPage&quot;: 450,&#xd;
+    &quot;aggregateLevel&quot;: &quot;portfolio&quot;,&#xd;
+    &quot;expandedList&quot;: [],&#xd;
+    &quot;portfolioId&quot;: 0,&#xd;
+    &quot;programmeId&quot;: 0,&#xd;
+    &quot;schemeId&quot;: 0&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">
+import com.jayway.jsonpath.JsonPath 
+
+// Get response body
+def response = prev.getResponseDataAsString()
+
+// Read title to match from JMeter variable
+def portfolioTitle = vars.get(&quot;PORTFOLIO_TITLE&quot;) ?: &quot;PORTFOLIO_TITLE_NOT_SET&quot;
+
+def divider = &quot;============================================================&quot;
+def headerLog = &quot;&quot;&quot;
+$divider
+ Extracting portfolioId for title: ${portfolioTitle}
+------------------------------------------------------------
+&quot;&quot;&quot;
+
+// Print to JMeter logs
+log.info(headerLog)
+// Print to command line
+println(headerLog)
+
+try {
+    def idList = JsonPath.read(response, &apos;$.data[?(@.title == &quot;&apos; + portfolioTitle + &apos;&quot;)].id&apos;)
+
+    if (idList &amp;&amp; idList.size() &gt; 0) {
+        def portfolioId = idList[0]
+        vars.put(&quot;portfolioId&quot;, portfolioId.toString())
+
+        def successLog = &quot; Extracted portfolioId: ${portfolioId}&quot;
+        log.info(successLog)
+        println(successLog)
+    } else {
+        vars.put(&quot;portfolioId&quot;, &quot;NOT_FOUND&quot;)
+
+        def warnLog = &quot; No matching portfolio found for title: ${portfolioTitle}&quot;
+        log.warn(warnLog)
+        println(warnLog)
+    }
+} catch (Exception e) {
+    vars.put(&quot;portfolioId&quot;, &quot;EXTRACTION_ERROR&quot;)
+
+    def errorLog = &quot; Error extracting portfolioId: ${e.getMessage()}&quot;
+    log.error(errorLog)
+    println(errorLog)
+}
+
+log.info(divider)
+println(divider)
+
+</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Portfolio" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/project-composition/get</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;leftValue&quot;: 1,&#xd;
+    &quot;offset&quot;: 0,&#xd;
+    &quot;recordsPerPage&quot;: 450,&#xd;
+    &quot;aggregateLevel&quot;: &quot;portfolio&quot;,&#xd;
+    &quot;expandedList&quot;: [${portfolioId}],&#xd;
+    &quot;portfolioId&quot;: 0,&#xd;
+    &quot;programmeId&quot;: 0,&#xd;
+    &quot;schemeId&quot;: 0&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">import com.jayway.jsonpath.JsonPath 
+
+// Get response data as string
+def response = prev.getResponseDataAsString()
+
+// Fetch the PROGRAMME_TITLE variable
+def programmeTitle = vars.get(&quot;PROGRAMME_TITLE&quot;) ?: &quot;PROGRAMME_TITLE_NOT_SET&quot;
+
+def divider = &quot;============================================================&quot;
+
+def headerLog = &quot;&quot;&quot;
+$divider
+ JSR223 PostProcessor - Programme ID Extraction
+------------------------------------------------------------
+ Matching title: ${programmeTitle}
+&quot;&quot;&quot;
+
+// Log in JMeter console/log file
+log.info(headerLog)
+// Print to command line (stdout)
+println(headerLog)
+
+try {
+    // Extract programmeId using JSONPath
+    def idList = JsonPath.read(response, &apos;$.data[?(@.title == &quot;&apos; + programmeTitle + &apos;&quot;)].id&apos;)
+
+    if (idList &amp;&amp; idList.size() &gt; 0) {
+        def programmeId = idList[0]
+        vars.put(&quot;programmeId&quot;, programmeId.toString())
+
+        def successLog = &quot; Extracted programmeId: ${programmeId}&quot;
+        log.info(successLog)
+        println(successLog)
+    } else {
+        vars.put(&quot;programmeId&quot;, &quot;NOT_FOUND&quot;)
+
+        def warnLog = &quot; No match found for title: ${programmeTitle}&quot;
+        log.warn(warnLog)
+        println(warnLog)
+    }
+} catch (Exception e) {
+    vars.put(&quot;programmeId&quot;, &quot;EXTRACTION_ERROR&quot;)
+
+    def errorLog = &quot; Error extracting programmeId: ${e.getMessage()}&quot;
+    log.error(errorLog)
+    println(errorLog)
+}
+
+log.info(divider)
+println(divider)
+</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Programe" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/project-composition/get</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+    &quot;leftValue&quot;: 1,&#xd;
+    &quot;offset&quot;: 0,&#xd;
+    &quot;recordsPerPage&quot;: 450,&#xd;
+    &quot;aggregateLevel&quot;: &quot;programme&quot;,&#xd;
+    &quot;expandedList&quot;: [${portfolioId},${programmeId}],&#xd;
+    &quot;portfolioId&quot;: 0,&#xd;
+    &quot;programmeId&quot;: 0,&#xd;
+    &quot;schemeId&quot;: 0&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">
+import com.jayway.jsonpath.JsonPath 
+
+// Get response as a string
+def response = prev.getResponseDataAsString()
+
+// Fetch the project title from JMeter variable
+def projectTitle = vars.get(&quot;PROJECT_TITLE&quot;) ?: &quot;PROJECT_TITLE_NOT_SET&quot;
+
+def divider = &quot;============================================================&quot;
+def headerLog = &quot;&quot;&quot;
+$divider
+  JSR223 PostProcessor - Project ID Extraction
+------------------------------------------------------------
+ Matching project title: ${projectTitle}
+&quot;&quot;&quot;
+
+// Log to JMeter GUI/Log file
+log.info(headerLog)
+// Print to command line
+println(headerLog)
+
+try {
+    // Apply JSONPath to extract the matching project ID
+    def idList = JsonPath.read(response, &apos;$.data[?(@.title == &quot;&apos; + projectTitle + &apos;&quot;)].id&apos;)
+
+    if (idList &amp;&amp; idList.size() &gt; 0) {
+        def projectId = idList[0]
+        vars.put(&quot;projectId&quot;, projectId.toString())
+
+        def successLog = &quot; Extracted projectId: ${projectId}&quot;
+        log.info(successLog)
+        println(successLog)
+    } else {
+        vars.put(&quot;projectId&quot;, &quot;NOT_FOUND&quot;)
+
+        def warnLog = &quot;⚠ No project found with title: ${projectTitle}&quot;
+        log.warn(warnLog)
+        println(warnLog)
+    }
+} catch (Exception e) {
+    vars.put(&quot;projectId&quot;, &quot;EXTRACTION_ERROR&quot;)
+
+    def errorLog = &quot; Error extracting projectId: ${e.message}&quot;
+    log.error(errorLog)
+    println(errorLog)
+}
+
+log.info(divider)
+println(divider)
+
+</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Project">
+              <stringProp name="HTTPSampler.path">/api/v2/project-composition/get/estimates/${projectId}</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">// Get variables with fallback defaults 
+def portfolioId = vars.get(&quot;portfolioId&quot;) ?: &quot;NOT_SET&quot;
+def programmeId = vars.get(&quot;programmeId&quot;) ?: &quot;NOT_SET&quot;
+def projectId   = vars.get(&quot;projectId&quot;)   ?: &quot;NOT_SET&quot;
+def title       = vars.get(&quot;estimate_title&quot;) ?: &quot;NOT_SET&quot;
+
+def divider = &quot;============================================================&quot;
+
+def summaryLog = &quot;&quot;&quot;
+$divider
+ JSR223 PostProcessor - Variable Summary
+------------------------------------------------------------
+ Portfolio ID  : ${portfolioId}
+ Programme ID  : ${programmeId}
+ Project ID    : ${projectId}
+ Estimate Title : ${title}
+$divider
+&quot;&quot;&quot;
+
+// Print to JMeter console/logs
+log.info(summaryLog)
+
+// Print to command line (stdout when running in -n mode)
+println(summaryLog)
+</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Administration - Estimate Resuest" enabled="true"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Estimate Request" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/estimate-request/get</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Estimators" enabled="true">
+              <stringProp name="HTTPSampler.path">/api/v2/estimator/get/estimators</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">
+import groovy.json.JsonSlurper 
+
+// Get response from previous sampler
+def response = prev.getResponseDataAsString()
+
+// Parse the JSON safely
+def json
+try {
+    json = new JsonSlurper().parseText(response)
+} catch (Exception e) {
+    def errLog = &quot; Failed to parse JSON response: ${e.message}&quot;
+    log.error(errLog)
+    println(errLog)   // also print to command line
+    vars.put(&quot;estimatorId&quot;, &quot;PARSE_ERROR&quot;)
+    return
+}
+
+// Get the EstimatorName to match
+def targetName = vars.get(&quot;EstimatorName&quot;)?.trim() ?: &quot;ESTIMATOR_NAME_NOT_SET&quot;
+def estimatorId = null
+
+def divider = &quot;============================================================&quot;
+def headerLog = &quot;&quot;&quot;
+$divider
+ JSR223 PostProcessor - Estimator ID Extraction
+------------------------------------------------------------
+ Target Estimator Name : ${targetName}
+&quot;&quot;&quot;
+
+log.info(headerLog)
+println(headerLog)   // CLI output
+
+// Loop through &apos;data&apos; array and find match
+if (json?.data instanceof List) {
+    json.data.each { item -&gt;
+        def name = item?.estimatorName?.trim()
+        if (name?.equalsIgnoreCase(targetName)) {  // use == for case-sensitive
+            estimatorId = item.estimatorId
+            return // break on first match
+        }
+    }
+} else {
+    def warnLog = &quot;️ &apos;data&apos; array not found or not a list.&quot;
+    log.warn(warnLog)
+    println(warnLog)
+}
+
+// Store and log result
+if (estimatorId != null) {
+    vars.put(&quot;estimatorId&quot;, estimatorId.toString())
+    def successLog = &quot; Extracted estimatorId     : ${estimatorId}&quot;
+    log.info(successLog)
+    println(successLog)
+} else {
+    vars.put(&quot;estimatorId&quot;, &quot;NOT_FOUND&quot;)
+    def failLog = &quot; No estimator found for    : ${targetName}&quot;
+    log.warn(failLog)
+    println(failLog)
+}
+
+log.info(divider)
+println(divider)
+
+</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Create Estimate Request" enabled="true"/>
+          <hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Step 1 - Choose Estimate Name &amp; Location" enabled="true"/>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Estimate Type" enabled="true">
+                <stringProp name="HTTPSampler.path">/api/v2/estimate-type/get</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="script">
+import com.jayway.jsonpath.JsonPath 
+
+// Get response from the previous sampler
+def response = prev.getResponseDataAsString()
+
+// Get the output type from JMeter variable
+def outputType = vars.get(&quot;OutputType&quot;) ?: &quot;OUTPUT_TYPE_NOT_SET&quot;
+
+def divider = &quot;============================================================&quot;
+def headerLog = &quot;&quot;&quot;
+$divider
+ JSR223 PostProcessor - Output ID Extraction
+------------------------------------------------------------
+ Target Output Type : ${outputType}
+&quot;&quot;&quot;
+
+log.info(headerLog)
+println(headerLog)   // print to CLI as well
+
+try {
+    // JSONPath to find the id where outputType matches
+    def idList = JsonPath.read(response, &apos;$.data[?(@.outputType == &quot;&apos; + outputType + &apos;&quot;)].id&apos;)
+
+    if (idList &amp;&amp; idList.size() &gt; 0) {
+        def outputId = idList[0]
+        def successLog = &quot; Extracted Output ID  : ${outputId}&quot;
+
+        log.info(successLog)
+        println(successLog)   // CLI output
+
+        // Store in JMeter variable
+        vars.put(&quot;outputId&quot;, outputId.toString())
+    } else {
+        def warnLog = &quot;⚠ No matching outputType found for: ${outputType}&quot;
+        log.warn(warnLog)
+        println(warnLog)
+
+        vars.put(&quot;outputId&quot;, &quot;NOT_FOUND&quot;)
+    }
+} catch (Exception e) {
+    def errorLog = &quot; Error while extracting outputId: ${e.getMessage()}&quot;
+    log.error(errorLog)
+    println(errorLog)
+
+    vars.put(&quot;outputId&quot;, &quot;EXTRACTION_ERROR&quot;)
+}
+
+log.info(divider)
+println(divider)
+
+</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
+              </hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Region" enabled="true">
+                <stringProp name="HTTPSampler.path">/api/v2/auth/regions</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="script">
+import com.jayway.jsonpath.JsonPath 
+
+// Get response from the previous sampler
+def response = prev.getResponseDataAsString()
+
+// Get the region description from JMeter variable
+def regionDesc = vars.get(&quot;REGION_DESC&quot;) ?: &quot;REGION_DESC_NOT_SET&quot;
+
+def divider = &quot;============================================================&quot;
+def headerLog = &quot;&quot;&quot;
+$divider
+ JSR223 PostProcessor - Region ID Extraction
+------------------------------------------------------------
+ Target Region Desc : ${regionDesc}
+&quot;&quot;&quot;
+
+log.info(headerLog)
+println(headerLog)   // print to command line
+
+try {
+    // JSONPath query to find matching regionId
+    def regionIdList = JsonPath.read(response, &apos;$.data[?(@.regionDesc == &quot;&apos; + regionDesc + &apos;&quot;)].regionId&apos;)
+
+    if (regionIdList &amp;&amp; regionIdList.size() &gt; 0) {
+        def regionId = regionIdList[0]
+        def successLog = &quot; Extracted Region ID  : ${regionId}&quot;
+
+        log.info(successLog)
+        println(successLog)   // print to CLI too
+
+        // Store in JMeter variable
+        vars.put(&quot;regionId&quot;, regionId.toString())
+    } else {
+        def warnLog = &quot;️ No matching regionDesc found for: ${regionDesc}&quot;
+        log.warn(warnLog)
+        println(warnLog)
+
+        vars.put(&quot;regionId&quot;, &quot;NOT_FOUND&quot;)
+    }
+} catch (Exception e) {
+    def errorLog = &quot; Error extracting regionId: ${e.getMessage()}&quot;
+    log.error(errorLog)
+    println(errorLog)
+
+    vars.put(&quot;regionId&quot;, &quot;EXTRACTION_ERROR&quot;)
+}
+
+log.info(divider)
+println(divider)
+
+</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
+              </hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Area" enabled="true">
+                <stringProp name="HTTPSampler.path">/api/v2/common-v2/area/get?regionId=${regionId}</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="script">
+import com.jayway.jsonpath.JsonPath 
+
+// Get response from the previous sampler
+def response = prev.getResponseDataAsString()
+
+// Get the area description from JMeter variable
+def areaDesc = vars.get(&quot;AREA_DESC&quot;) ?: &quot;AREA_DESC_NOT_SET&quot;
+
+def divider = &quot;============================================================&quot;
+def headerLog = &quot;&quot;&quot;
+$divider
+ JSR223 PostProcessor - Area ID Extraction
+------------------------------------------------------------
+ Target Area Desc : ${areaDesc}
+&quot;&quot;&quot;
+
+log.info(headerLog)
+println(headerLog)   // print to command line as well
+
+try {
+    // JSONPath query to find matching areaId
+    def areaIdList = JsonPath.read(response, &apos;$.data[?(@.areaDesc == &quot;&apos; + areaDesc + &apos;&quot;)].areaId&apos;)
+
+    if (areaIdList &amp;&amp; areaIdList.size() &gt; 0) {
+        def areaId = areaIdList[0]
+        def successLog = &quot; Extracted Area ID : ${areaId}&quot;
+
+        log.info(successLog)
+        println(successLog)   // CLI output
+
+        // Store in JMeter variable
+        vars.put(&quot;areaId&quot;, areaId.toString())
+    } else {
+        def warnLog = &quot;⚠ No matching areaDesc found for: ${areaDesc}&quot;
+        log.warn(warnLog)
+        println(warnLog)
+
+        vars.put(&quot;areaId&quot;, &quot;NOT_FOUND&quot;)
+    }
+} catch (Exception e) {
+    def errorLog = &quot; Error extracting areaId: ${e.getMessage()}&quot;
+    log.error(errorLog)
+    println(errorLog)
+
+    vars.put(&quot;areaId&quot;, &quot;EXTRACTION_ERROR&quot;)
+}
+
+log.info(divider)
+println(divider)
+
+</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
+              </hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Portfolio List" enabled="true">
+                <stringProp name="HTTPSampler.path">/api/v2/project-composition/portfolio/get</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="script">
+import com.jayway.jsonpath.JsonPath 
+
+// Get the JSON response from the previous sampler
+def response = prev.getResponseDataAsString()
+
+// Fetch the dynamic portfolio title from JMeter variables
+def portfolioTitle = vars.get(&quot;PORTFOLIO_TITLE&quot;) ?: &quot;PORTFOLIO_TITLE_NOT_SET&quot;
+
+def divider = &quot;============================================================&quot;
+def headerLog = &quot;&quot;&quot;
+$divider
+JSR223 PostProcessor - ID Extraction by Portfolio Title
+------------------------------------------------------------
+Target Name (Portfolio Title) : ${portfolioTitle}
+&quot;&quot;&quot;
+
+// Print header
+log.info(headerLog)
+println(headerLog)
+
+try {
+    // JSONPath query: match name == ${PORTFOLIO_TITLE}, extract id
+    def idList = JsonPath.read(response, &apos;$.data[?(@.name == &quot;&apos; + portfolioTitle + &apos;&quot;)].id&apos;)
+
+    if (idList &amp;&amp; idList.size() &gt; 0) {
+        def matchedId = idList[0]
+        def successLog = &quot;Extracted ID : ${matchedId}&quot;
+
+        log.info(successLog)
+        println(successLog)
+
+        // Store in JMeter variable
+        vars.put(&quot;id&quot;, matchedId.toString())
+    } else {
+        def warnLog = &quot;No match found for name: ${portfolioTitle}&quot;
+        log.warn(warnLog)
+        println(warnLog)
+
+        vars.put(&quot;id&quot;, &quot;NOT_FOUND&quot;)
+    }
+} catch (Exception e) {
+    def errorLog = &quot;Error during ID extraction: ${e.getMessage()}&quot;
+    log.error(errorLog)
+    println(errorLog)
+
+    vars.put(&quot;id&quot;, &quot;EXTRACTION_ERROR&quot;)
+}
+
+log.info(divider)
+println(divider)
+
+</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
+              </hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Project Composition for Estimate Request" enabled="true">
+                <stringProp name="HTTPSampler.path">/api/v2/project-composition/programme/get?PortfolioId=${portfolioId}</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Estimation " enabled="true">
+                <stringProp name="HTTPSampler.path">/api/v2/estimate-request/create</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&#xd;
+    &quot;estimateName&quot;: &quot;${estimateName}&quot;,&#xd;
+    &quot;portfolioId&quot;: ${portfolioId},&#xd;
+    &quot;programmeId&quot;: ${programmeId},&#xd;
+    &quot;regionId&quot;: ${regionId},&#xd;
+    &quot;areaId&quot;: ${areaId},&#xd;
+    &quot;UseExistingProject&quot;: 1,&#xd;
+    &quot;step1Status&quot;: 1,&#xd;
+    &quot;proposedFields&quot;: [&#xd;
+        &quot;EstimateName&quot;,&#xd;
+        &quot;PortfolioId&quot;,&#xd;
+        &quot;ProgrammeId&quot;,&#xd;
+        &quot;RegionId&quot;,&#xd;
+        &quot;AreaId&quot;,&#xd;
+        &quot;UseExistingProject&quot;,&#xd;
+        &quot;Step1Status&quot;&#xd;
+    ]&#xd;
+}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="script">
+import org.apache.commons.lang3.RandomUtils
+
+int randNum = RandomUtils.nextInt(1000, 9999)
+String estimateName = &quot;Estimate_&quot; + randNum
+
+vars.put(&quot;estimateName&quot;, estimateName)
+
+// Log to JMeter&apos;s log file (and GUI log viewer)
+log.info(&quot;Generated Estimate Name: &quot; + estimateName)
+
+// Also print to command-line console (stdout)
+println(&quot;Generated Estimate Name: &quot; + estimateName)
+</stringProp>
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                </JSR223PreProcessor>
+                <hashTree/>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="script">
+import com.jayway.jsonpath.JsonPath 
+
+// Get JSON response from the previous sampler
+def response = prev.getResponseDataAsString()
+
+// === Extract estimateRequestId and estimateName from $.data.estimateRequestId &amp; estimateName ===
+try {
+    def estimateRequestId = JsonPath.read(response, &apos;$.data.estimateRequestId&apos;)
+    def estimateName = JsonPath.read(response, &apos;$.data.estimateName&apos;)
+
+    vars.put(&quot;estimateRequestId&quot;, estimateRequestId.toString())
+    vars.put(&quot;estimateName&quot;, estimateName.toString())
+
+    def msg1 = &quot;Extracted Estimate Request ID : ${estimateRequestId}&quot;
+    def msg2 = &quot;Extracted Estimate Name       : ${estimateName}&quot;
+
+    log.info(msg1); println(msg1)
+    log.info(msg2); println(msg2)
+
+} catch (Exception e) {
+    def errMsg = &quot;Failed to extract estimateRequestId or estimateName: &quot; + e.message
+    log.error(errMsg); println(errMsg)
+
+    vars.put(&quot;estimateRequestId&quot;, &quot;EXTRACTION_ERROR&quot;)
+    vars.put(&quot;estimateName&quot;, &quot;EXTRACTION_ERROR&quot;)
+}
+
+// === Fetch and log all other existing variables ===
+def outputId          = vars.get(&quot;outputId&quot;) ?: &quot;NOT_SET&quot;
+def regionId          = vars.get(&quot;regionId&quot;) ?: &quot;NOT_SET&quot;
+def portfolioId       = vars.get(&quot;id&quot;) ?: &quot;NOT_SET&quot;
+def estimateRequestId = vars.get(&quot;estimateRequestId&quot;) ?: &quot;NOT_SET&quot;
+def estimateName      = vars.get(&quot;estimateName&quot;) ?: &quot;NOT_SET&quot;
+
+def divider = &quot;============================================================&quot;
+def header  = &quot;JSR223 PostProcessor - Final Variable Log&quot;
+def line    = &quot;------------------------------------------------------------&quot;
+
+log.info(divider); println(divider)
+log.info(header);  println(header)
+log.info(line);    println(line)
+
+def v1 = &quot;Output ID              : ${outputId}&quot;
+def v2 = &quot;Region ID              : ${regionId}&quot;
+def v3 = &quot;Portfolio ID           : ${portfolioId}&quot;
+def v4 = &quot;Estimate Request ID    : ${estimateRequestId}&quot;
+def v5 = &quot;Estimate Name          : ${estimateName}&quot;
+
+[v1,v2,v3,v4,v5].each { msg -&gt;
+    log.info(msg)
+    println(msg)
+}
+
+log.info(divider); println(divider)
+
+</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
+              </hashTree>
+              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Think Time - 2 seconds" enabled="true">
+                <stringProp name="ConstantTimer.delay">2000</stringProp>
+              </ConstantTimer>
+              <hashTree/>
+            </hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Step 2 - Choose Existing Project" enabled="true"/>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET - ProjForEstimation" enabled="true">
+                <stringProp name="HTTPSampler.path">/api/v2/project-composition/proj-for-est-req/get</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value"></stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    </elementProp>
+                    <elementProp name="PortfolioId" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">${portfolioId}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">PortfolioId</stringProp>
+                    </elementProp>
+                    <elementProp name="ProgrammeId" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">${programmeId}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">ProgrammeId</stringProp>
+                    </elementProp>
+                    <elementProp name="RegionId" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">${regionId}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">RegionId</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET - Estimate Request by ID" enabled="true">
+                <stringProp name="HTTPSampler.path">/api/v2/estimate-request/get-request-by-id/${estimateRequestId}</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update Choose Existing project" enabled="true">
+                <stringProp name="HTTPSampler.path">/api/v2/estimate-request/update</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&#xd;
+    &quot;projectId&quot;: ${projectId},&#xd;
+    &quot;OptionPhasePin&quot;: null,&#xd;
+    &quot;DevPhasePin&quot;: null,&#xd;
+    &quot;ConstPhasePin&quot;: null,&#xd;
+    &quot;OtherPhasePin&quot;: null,&#xd;
+    &quot;Area&quot;: null,&#xd;
+    &quot;Route&quot;: null,&#xd;
+    &quot;estimateRequestId&quot;: ${estimateRequestId},&#xd;
+    &quot;Step2Status&quot;: 1,&#xd;
+    &quot;step2Status&quot;: 1,&#xd;
+    &quot;proposedFields&quot;: [&#xd;
+        &quot;ProjectId&quot;,&#xd;
+        &quot;OptionPhasePin&quot;,&#xd;
+        &quot;DevPhasePin&quot;,&#xd;
+        &quot;ConstPhasePin&quot;,&#xd;
+        &quot;OtherPhasePin&quot;,&#xd;
+        &quot;Area&quot;,&#xd;
+        &quot;Route&quot;,&#xd;
+        &quot;Step2Status&quot;&#xd;
+    ]&#xd;
+}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Think Time - 2 seconds" enabled="true">
+                <stringProp name="ConstantTimer.delay">2000</stringProp>
+              </ConstantTimer>
+              <hashTree/>
+            </hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Step 3 - Select Estimate Types &amp; Development Phase" enabled="true"/>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET - Estimate Type List " enabled="true">
+                <stringProp name="HTTPSampler.path">api/v2/estimate-type/get</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET - Life Cycle Stage List " enabled="true">
+                <stringProp name="HTTPSampler.path">/api/v2/life-cycle-stage/list</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET - Estimate Request by ID" enabled="true">
+                <stringProp name="HTTPSampler.path">/api/v2/estimate-request/get-request-by-id/${estimateRequestId}</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Development Phase id" enabled="true">
+                <stringProp name="HTTPSampler.path">/api/v2/development-phase/get?estimateTypeId=${outputId}</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="script">
+import com.jayway.jsonpath.JsonPath 
+
+// Get response from previous sampler
+def response = prev.getResponseDataAsString()
+
+// Get the levelOfEstimateDescription from user-defined variable
+def estimateDesc = vars.get(&quot;LEVEL_OF_ESTIMATE_DESC&quot;) ?: &quot;LEVEL_DESC_NOT_SET&quot;
+
+// Structured logging
+def divider = &quot;============================================================&quot;
+def header  = &quot;JSR223 PostProcessor - levelOfEstimateId Extraction&quot;
+def line    = &quot;------------------------------------------------------------&quot;
+
+[divider, header, line, &quot;Target Estimate Description : ${estimateDesc}&quot;].each { msg -&gt;
+    log.info(msg)
+    println(msg)
+}
+
+try {
+    // JSONPath query to find the levelOfEstimateId for the matching description
+    def estimateIdList = JsonPath.read(response, &apos;$.data[?(@.levelOfEstimateDescription == &quot;&apos; + estimateDesc + &apos;&quot;)].levelOfEstimateId&apos;)
+
+    if (estimateIdList &amp;&amp; estimateIdList.size() &gt; 0) {
+        def estimateId = estimateIdList[0]
+        def successMsg = &quot;Extracted levelOfEstimateId : ${estimateId}&quot;
+
+        log.info(successMsg)
+        println(successMsg)
+
+        // Store as JMeter variable
+        vars.put(&quot;levelOfEstimateId&quot;, estimateId.toString())
+    } else {
+        def warnMsg = &quot;No matching levelOfEstimateDescription found for: ${estimateDesc}&quot;
+        log.warn(warnMsg)
+        println(warnMsg)
+
+        vars.put(&quot;levelOfEstimateId&quot;, &quot;NOT_FOUND&quot;)
+    }
+} catch (Exception e) {
+    def errMsg = &quot;Error extracting levelOfEstimateId: &quot; + e.getMessage()
+    log.error(errMsg)
+    println(errMsg)
+
+    vars.put(&quot;levelOfEstimateId&quot;, &quot;EXTRACTION_ERROR&quot;)
+}
+
+log.info(divider)
+println(divider)
+</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
+              </hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update Estimate Types &amp; Development phase" enabled="true">
+                <stringProp name="HTTPSampler.path">/api/v2/estimate-request/update</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&#xd;
+    &quot;estimateRequestId&quot;: ${estimateRequestId},&#xd;
+    &quot;estimateTypeId&quot;: ${outputId},&#xd;
+    &quot;devPhaseId&quot;: ${levelOfEstimateId},&#xd;
+    &quot;step3Status&quot;: 1,&#xd;
+    &quot;proposedFields&quot;: [&#xd;
+        &quot;EstimateRequestId&quot;,&#xd;
+        &quot;EstimateTypeId&quot;,&#xd;
+        &quot;DevPhaseId&quot;,&#xd;
+        &quot;Step3Status&quot;&#xd;
+    ]&#xd;
+}&#xd;
+</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Think Time - 2 seconds" enabled="true">
+                <stringProp name="ConstantTimer.delay">2000</stringProp>
+              </ConstantTimer>
+              <hashTree/>
+            </hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Step 4 - Specify Number of Estimates" enabled="true"/>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get all Scenarios" enabled="true">
+                <stringProp name="HTTPSampler.path">/api/v2/scenario-lib/get-all</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="script">
+import com.jayway.jsonpath.JsonPath 
+
+// Get response from the previous sampler
+def response = prev.getResponseDataAsString()
+
+// Get the scenario description from the variable
+def scenarioDesc = vars.get(&quot;SCENARIO_DESC&quot;) ?: &quot;SCENARIO_DESC_NOT_SET&quot;
+
+// Structured Logging
+def divider = &quot;============================================================&quot;
+def header  = &quot;JSR223 PostProcessor - scenarioLibraryId Extraction&quot;
+def line    = &quot;------------------------------------------------------------&quot;
+
+[divider, header, line, &quot;Target Scenario Description : ${scenarioDesc}&quot;].each { msg -&gt;
+    log.info(msg)
+    println(msg)
+}
+
+try {
+    // Use JSONPath to find scenarioLibraryId where name matches scenarioDesc
+    def scenarioIdList = JsonPath.read(response, &apos;$.data[?(@.name == &quot;&apos; + scenarioDesc + &apos;&quot;)].scenarioLibraryId&apos;)
+
+    if (scenarioIdList &amp;&amp; scenarioIdList.size() &gt; 0) {
+        def scenarioLibraryId = scenarioIdList[0]
+        def successMsg = &quot;Extracted scenarioLibraryId : ${scenarioLibraryId}&quot;
+
+        log.info(successMsg)
+        println(successMsg)
+
+        // Store in JMeter variable
+        vars.put(&quot;scenarioLibraryId&quot;, scenarioLibraryId.toString())
+    } else {
+        def warnMsg = &quot;No matching scenario name found for: ${scenarioDesc}&quot;
+        log.warn(warnMsg)
+        println(warnMsg)
+
+        vars.put(&quot;scenarioLibraryId&quot;, &quot;NOT_FOUND&quot;)
+    }
+} catch (Exception e) {
+    def errMsg = &quot;Error extracting scenarioLibraryId: &quot; + e.getMessage()
+    log.error(errMsg)
+    println(errMsg)
+
+    vars.put(&quot;scenarioLibraryId&quot;, &quot;EXTRACTION_ERROR&quot;)
+}
+
+log.info(divider)
+println(divider)
+
+</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
+              </hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Estimate request" enabled="true">
+                <stringProp name="HTTPSampler.path">/api/v2/estimate-request/get-request-by-id/${estimateRequestId}</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Estimate Type" enabled="true">
+                <stringProp name="HTTPSampler.path">/api/v2/estimate-type/get</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Specify Number of Estimates" enabled="true">
+                <stringProp name="HTTPSampler.path">/api/v2/estimate-request/update</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&#xd;
+  &quot;outputTypeEnum&quot;: 0,&#xd;
+  &quot;estimateRequestId&quot;: ${estimateRequestId},&#xd;
+  &quot;numberOfEstimates&quot;: ${numberOfEstimates},&#xd;
+  &quot;estimateRequestPlan&quot;: ${estimateRequestPlanBlock},&#xd;
+  &quot;step4Status&quot;: ${step4StatusId},&#xd;
+  &quot;proposedFields&quot;: [&#xd;
+    &quot;OutputTypeEnum&quot;,&#xd;
+    &quot;EstimateRequestId&quot;,&#xd;
+    &quot;NumberOfEstimates&quot;,&#xd;
+    &quot;EstimateRequestPlan&quot;,&#xd;
+    &quot;Step4Status&quot;&#xd;
+  ]&#xd;
+}&#xd;
+</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="script">
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import groovy.json.JsonOutput
+
+// Date formatters
+def dateFormatter = DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd&quot;)
+def nameFormatter = DateTimeFormatter.ofPattern(&quot;yyyyMM&quot;)
+
+// Read variables from JMeter context
+def estimateRequestId = vars.get(&quot;estimateRequestId&quot;) ?: &quot;1001&quot;
+def scenarioLibraryId = vars.get(&quot;scenarioLibraryId&quot;) ?: &quot;2001&quot;
+def step4StatusId = vars.get(&quot;step4StatusId&quot;) ?: vars.get(&quot;step4Status&quot;) ?: &quot;1&quot;
+def numberOfEstimatesRaw = vars.get(&quot;numberOfEstimates&quot;)
+
+// Validate required input
+if (!numberOfEstimatesRaw?.trim()) {
+    def errorMsg = &quot;&apos;numberOfEstimates&apos; variable is required but not provided.&quot;
+    log.error(errorMsg)
+    println(errorMsg)
+    throw new IllegalArgumentException(errorMsg)
+}
+
+int count = numberOfEstimatesRaw.toInteger()
+
+// Save validated variables
+vars.put(&quot;estimateRequestId&quot;, estimateRequestId)
+vars.put(&quot;scenarioLibraryId&quot;, scenarioLibraryId)
+vars.put(&quot;step4StatusId&quot;, step4StatusId)
+vars.put(&quot;numberOfEstimates&quot;, count.toString())
+vars.put(&quot;numberOfPlans&quot;, count.toString())
+
+def msg = &quot;numberOfEstimates from UDV: ${count}&quot;
+log.info(msg)
+println(msg)
+
+// Generate dynamic estimate plans
+def today = LocalDate.now()
+def estimatePlanList = []
+
+for (int i = 0; i &lt; count; i++) {
+    def startDate = today.plusDays(i * 2)
+    def endDate = startDate.plusDays(10)
+    def dueDate = startDate.plusDays(1)
+    def dynamicName = &quot;EstimatePlan_${startDate.format(nameFormatter)}_${System.currentTimeMillis()}&quot;
+
+    // Save first plan info separately
+    if (i == 0) {
+        vars.put(&quot;dynamicName&quot;, dynamicName)
+        vars.put(&quot;dynamicStartDate&quot;, startDate.format(dateFormatter))
+        vars.put(&quot;dynamicEndDate&quot;, endDate.format(dateFormatter))
+        vars.put(&quot;dynamicDueDate&quot;, dueDate.format(dateFormatter))
+    }
+
+    def logLine = &quot;Plan ${i} -&gt; name: ${dynamicName}, start: ${startDate}, end: ${endDate}, due: ${dueDate}&quot;
+    log.info(logLine)
+    println(logLine)
+
+    def plan = [
+        name      : dynamicName,
+        dueDate   : dueDate.format(dateFormatter),
+        purpose   : &quot;Project estimate&quot;,
+        scenarioId: scenarioLibraryId.toInteger(),
+        startDate : startDate.format(dateFormatter),
+        endDate   : endDate.format(dateFormatter),
+        isDeleted : 0
+    ]
+
+    estimatePlanList &lt;&lt; plan
+}
+
+// Convert plan list to JSON and store
+def estimatePlanBlockJson = JsonOutput.toJson(estimatePlanList)
+vars.put(&quot;estimateRequestPlanBlock&quot;, estimatePlanBlockJson)
+
+def finalLog = &quot;Final estimateRequestPlanBlock JSON:\n${estimatePlanBlockJson}&quot;
+log.info(finalLog)
+println(finalLog)
+
+</stringProp>
+                </JSR223PreProcessor>
+                <hashTree/>
+              </hashTree>
+              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Think Time - 2 seconds" enabled="true">
+                <stringProp name="ConstantTimer.delay">2000</stringProp>
+              </ConstantTimer>
+              <hashTree/>
+            </hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Step 5 - Upload Any Supporting Documents" enabled="true"/>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Upload any Supporting Document" enabled="true">
+                <stringProp name="HTTPSampler.path">/api/v2/estimate-request/update</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&#xd;
+    &quot;estimateRequestId&quot;: ${estimateRequestId},&#xd;
+    &quot;step5Status&quot;: 1,&#xd;
+    &quot;tempDocIds&quot;: [],&#xd;
+    &quot;proposedFields&quot;: [&#xd;
+        &quot;EstimateRequestId&quot;,&#xd;
+        &quot;Step5Status&quot;,&#xd;
+        &quot;TempDocIds&quot;&#xd;
+    ]&#xd;
+}&#xd;
+</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Think Time - 2 seconds" enabled="true">
+                <stringProp name="ConstantTimer.delay">2000</stringProp>
+              </ConstantTimer>
+              <hashTree/>
+            </hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Step 6 - Project Governance" enabled="true"/>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Project Governance" enabled="true">
+                <stringProp name="HTTPSampler.path">/api/v2/estimate-request/update</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&#xd;
+    &quot;estimateGovernanceComments&quot;: &quot;${estimateGovernanceComments}&quot;,&#xd;
+    &quot;generalComments&quot;: &quot;${generalComments}&quot;,&#xd;
+    &quot;estimateRequestReason&quot;: &quot;${estimateRequestReason}&quot;,&#xd;
+    &quot;governanceMeetingDate&quot;: null,&#xd;
+    &quot;projectManagerName&quot;: &quot;&quot;,&#xd;
+    &quot;projectManagerEmployer&quot;: &quot;&quot;,&#xd;
+    &quot;projectManagerContactNumber&quot;: &quot;&quot;,&#xd;
+    &quot;projectManagerEmailAddress&quot;: &quot;&quot;,&#xd;
+    &quot;assistantProjectManager&quot;: &quot;&quot;,&#xd;
+    &quot;assistantProjectManagerContactNumber&quot;: &quot;&quot;,&#xd;
+    &quot;assistantProjectManagerEmail&quot;: &quot;&quot;,&#xd;
+    &quot;step6Status&quot;: 1,&#xd;
+    &quot;estimateRequestId&quot;: ${estimateRequestId},&#xd;
+    &quot;proposedFields&quot;: [&#xd;
+        &quot;EstimateGovernanceComments&quot;,&#xd;
+        &quot;GeneralComments&quot;,&#xd;
+        &quot;EstimateRequestReason&quot;,&#xd;
+        &quot;GovernanceMeetingDate&quot;,&#xd;
+        &quot;ProjectManagerName&quot;,&#xd;
+        &quot;ProjectManagerEmployer&quot;,&#xd;
+        &quot;ProjectManagerContactNumber&quot;,&#xd;
+        &quot;ProjectManagerEmailAddress&quot;,&#xd;
+        &quot;AssistantProjectManager&quot;,&#xd;
+        &quot;AssistantProjectManagerContactNumber&quot;,&#xd;
+        &quot;AssistantProjectManagerEmail&quot;,&#xd;
+        &quot;Step6Status&quot;&#xd;
+    ]&#xd;
+}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="script">
+// Function to generate a random alphanumeric string of a specific length
+String generateRandomString(String prefix, int length) {
+    def chars = (&apos;A&apos;..&apos;Z&apos;) + (&apos;a&apos;..&apos;z&apos;) + (&apos;0&apos;..&apos;9&apos;)
+    def randomPart = (1..(length - prefix.length())).collect {
+        chars[new Random().nextInt(chars.size())]
+    }.join()
+    return (prefix + randomPart).toUpperCase()
+}
+
+// Generate random strings with 20-character total length
+def estGovComment = generateRandomString(&quot;Gov_&quot;, 20)
+def genComment = generateRandomString(&quot;Gen_&quot;, 20)
+def estRequestReason = generateRandomString(&quot;Res_&quot;, 20)
+
+// Store values in JMeter variables
+vars.put(&quot;estimateGovernanceComments&quot;, estGovComment)
+vars.put(&quot;generalComments&quot;, genComment)
+vars.put(&quot;estimateRequestReason&quot;, estRequestReason)
+
+// Logging to both JMeter GUI and CLI console
+def logMessage = { label, value -&gt;
+    def message = &quot;${label}: ${value}&quot;
+    log.info(message)    // Appears in GUI (Log Viewer) and jmeter.log
+    println(message)     // Appears in CLI console and jmeter.log
+}
+
+logMessage(&quot;Generated estimateGovernanceComments&quot;, estGovComment)
+logMessage(&quot;Generated generalComments&quot;, genComment)
+logMessage(&quot;Generated estimateRequestReason&quot;, estRequestReason)
+
+// Set default value for step7StatusId if not provided
+def step7 = vars.get(&quot;step7StatusId&quot;)
+if (!step7 || step7.trim().isEmpty()) {
+    vars.put(&quot;step7StatusId&quot;, &quot;1&quot;)
+    logMessage(&quot;Default step7StatusId applied&quot;, &quot;1&quot;)
+}
+</stringProp>
+                </JSR223PreProcessor>
+                <hashTree/>
+              </hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Submit Request" enabled="true">
+                <stringProp name="HTTPSampler.path">/api/v2/estimate-request/update</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&#xd;
+    &quot;estimateRequestId&quot;: ${estimateRequestId},&#xd;
+    &quot;status&quot;: 1,&#xd;
+    &quot;proposedFields&quot;: [&#xd;
+        &quot;EstimateRequestId&quot;,&#xd;
+        &quot;Step7Status&quot;,&#xd;
+        &quot;ReviewComments&quot;,&#xd;
+        &quot;Status&quot;&#xd;
+    ],&#xd;
+    &quot;step7Status&quot;: 1,&#xd;
+    &quot;reviewComments&quot;: null&#xd;
+}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Think Time - 2 seconds" enabled="true">
+                <stringProp name="ConstantTimer.delay">2000</stringProp>
+              </ConstantTimer>
+              <hashTree/>
+            </hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Step 7 - Estimate Request Summary" enabled="true"/>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="View Request" enabled="true">
+                <stringProp name="HTTPSampler.path">/api/v2/estimate-request/get-request-by-id/${estimateRequestId}</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Think Time - 2 seconds" enabled="true">
+                <stringProp name="ConstantTimer.delay">2000</stringProp>
+              </ConstantTimer>
+              <hashTree/>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Estimate Approve" enabled="true">
+                <stringProp name="HTTPSampler.path">/api/v2/estimate-request/update</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&#xd;
+    &quot;estimateRequestId&quot;: ${estimateRequestId},&#xd;
+    &quot;status&quot;: 2,&#xd;
+    &quot;estimatorId&quot;: ${estimatorId},&#xd;
+    &quot;proposedFields&quot;: [&#xd;
+        &quot;EstimateRequestId&quot;,&#xd;
+        &quot;Step7Status&quot;,&#xd;
+        &quot;EstimatorId&quot;,&#xd;
+        &quot;ReviewComments&quot;,&#xd;
+        &quot;Status&quot;,&#xd;
+        &quot;EstimateRequestReviewer&quot;,&#xd;
+        &quot;ApproverId&quot;&#xd;
+    ],&#xd;
+    &quot;step7Status&quot;: 1,&#xd;
+    &quot;reviewComments&quot;: null,&#xd;
+     &quot;estimateRequestReviewer&quot;: [&#xd;
+        {&#xd;
+            &quot;estimateRequestReviewerId&quot;: null,&#xd;
+            &quot;estimateRequestId&quot;: ${estimateRequestId},&#xd;
+            &quot;estimatorId&quot;: ${estimatorId},&#xd;
+            &quot;isDeleted&quot;: 0&#xd;
+        }&#xd;
+    ],&#xd;
+    &quot;approverId&quot;: ${estimatorId}&#xd;
+}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="script">
+// Get estimatorId from JMeter variables
+def estimatorId = vars.get(&quot;estimatorId&quot;)
+
+// Log to JMeter GUI (log viewer) and CLI (stdout)
+def message = &quot;JSR223 PreProcessor - estimatorId before request: ${estimatorId}&quot;
+log.info(message)     // GUI + jmeter.log
+println(message)      // CLI + jmeter.log
+</stringProp>
+                </JSR223PreProcessor>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SimpleDataWriter" testclass="ResultCollector" testname="Simple Data Writer" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">C:\Users\radhakrishnanv\Working Project\Benchmark_Estimating\Benchmark Estimate - Regression Test Files\Approve Estimation Quotation API\Integration_Approve_Estimation_Quotation API.jtl</stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
