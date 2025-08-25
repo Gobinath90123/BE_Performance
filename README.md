@@ -26,9 +26,12 @@ Below are step-by-step instructions for setup, execution, and report generation.
 **1. Clone the repository**
 ```bash
 git clone https://github.com/Gobinath90123/BE_Performance.git
-cd BE_Performance
+
 ```
 
+```bash
+cd BE_Performance
+```
 **2. Install JMeter**  
 Download and extract Apache JMeter 5.6.3 from the [official website](https://jmeter.apache.org/).
 
@@ -51,7 +54,7 @@ Open the generated HTML report folder in your browser.
 
 ## ⚡ GitHub Actions: Automated JMeter Execution
 
-- Workflow file: `.github/workflows/run-jmeter-tests.yml`
+- Workflow file: `https://github.com/Gobinath90123/BE_Performance/blob/develope/.github/develope.yml`
 - Triggers: on push or manual run for the `develope` branch.
 
 ### 🔍 Workflow Steps
