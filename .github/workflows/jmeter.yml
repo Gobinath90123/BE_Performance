@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - develope
+      - develop  # changed to develop branch as you mentioned
 
 jobs:
   jmeter-test:
@@ -27,13 +27,14 @@ jobs:
         run: |
           curl -L https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.zip -o jmeter.zip
           tar -xf jmeter.zip
-          echo "${{ github.workspace }}\\apache-jmeter-5.6.3\\bin" >> $env:GITHUB_PATH
+          echo "${{ github.workspace }}\apache-jmeter-5.6.3\bin" >> $env:GITHUB_PATH
 
-      # Step 4: Run all JMX test scripts
+      # Step 4: Run all JMX test scripts recursively and generate reports
       - name: Run All JMeter Scripts
         shell: pwsh
         run: |
           $timestamp = Get-Date -Format "yyyy-MM-dd_HHmmss"
+          # Recursively get all .jmx files inside BE_Integration Environment folder
           $jmxFiles = Get-ChildItem -Path "BE_Integration Environment" -Filter *.jmx -Recurse
           New-Item -ItemType Directory -Force -Path results | Out-Null
 
@@ -45,11 +46,11 @@ jobs:
             $jtlFile = "$resultDir/${baseName}.jtl"
             $htmlDir = "$resultDir/${baseName}-html"
 
-            echo "Running test: $baseName"
-            jmeter -n -t "$($file.FullName)" -l "$jtlFile"
+            Write-Host "Running test: $baseName"
+            & "${{ github.workspace }}\apache-jmeter-5.6.3\bin\jmeter.bat" -n -t "$($file.FullName)" -l "$jtlFile"
 
-            echo "Generating report: $htmlDir"
-            jmeter -g "$jtlFile" -o "$htmlDir"
+            Write-Host "Generating report: $htmlDir"
+            & "${{ github.workspace }}\apache-jmeter-5.6.3\bin\jmeter.bat" -g "$jtlFile" -o "$htmlDir"
           }
 
       # Step 5: Upload all reports as artifact
