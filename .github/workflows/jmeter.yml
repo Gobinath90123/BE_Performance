@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - develope
 
 jobs:
   jmeter-test:
@@ -27,14 +27,14 @@ jobs:
         run: |
           curl -L https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.zip -o jmeter.zip
           tar -xf jmeter.zip
-          echo "${{ github.workspace }}\apache-jmeter-5.6.3\bin" >> $env:GITHUB_PATH
+          echo "${{ github.workspace }}\\apache-jmeter-5.6.3\\bin" >> $env:GITHUB_PATH
 
       # Step 4: Run all JMX test scripts
       - name: Run All JMeter Scripts
         shell: pwsh
         run: |
           $timestamp = Get-Date -Format "yyyy-MM-dd_HHmmss"
-          $jmxFiles = Get-ChildItem "JMX files" -Filter *.jmx
+          $jmxFiles = Get-ChildItem -Path "BE_Integration Environment" -Filter *.jmx -Recurse
           New-Item -ItemType Directory -Force -Path results | Out-Null
 
           foreach ($file in $jmxFiles) {
